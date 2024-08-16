@@ -18,7 +18,7 @@ public class MatchResultServiceImpl implements MatchResultService {
     MatchResultRepository matchResultRepository;
 
     @Override
-    public MatchResult getMatchById(Integer matchId) {
+    public MatchResult getMatchById(String matchId) {
         MatchResult matchResult = matchResultRepository.findByMatchId(matchId);
         if (matchResult != null) {
             return matchResult;
@@ -28,7 +28,7 @@ public class MatchResultServiceImpl implements MatchResultService {
     }
 
     @Override
-    public List<MatchResult> getMatchByTeamId(Integer teamId) {
+    public List<MatchResult> getMatchByTeamId(String teamId) {
         List<MatchResult> matchResults = matchResultRepository.findByFirstTeamId(teamId);
         if (matchResults == null) {
             matchResults = matchResultRepository.findBySecondTeamId(teamId);

@@ -8,9 +8,9 @@ import caplcom.codingAge.capl.Models.request.UpdateRequests.UpdateMatchResult;
 import java.util.List;
 
 public interface MatchResultService {
-    MatchResult getMatchById(Integer matchId);
+    MatchResult getMatchById(String matchId);
 
-    List<MatchResult> getMatchByTeamId(Integer teamId);
+    List<MatchResult> getMatchByTeamId(String teamId);
 
     MatchResult createMatchResult(MatchResultRequest matchResultRequest);
 

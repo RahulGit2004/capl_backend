@@ -28,7 +28,7 @@ public class ExtrasServiceImpl implements ExtrasService {
     }
 
     @Override
-    public Extras getExtrasById(Integer id) {
+    public Extras getExtrasById(String id) {
         Extras extras = (extrasRepository.findById(id)).get();
         if (extras != null) {
             return extras;
@@ -37,7 +37,7 @@ public class ExtrasServiceImpl implements ExtrasService {
     }
 
     @Override
-    public List<Extras> getExtrasByTeamId(Integer teamId) {
+    public List<Extras> getExtrasByTeamId(String teamId) {
         List<Extras> extrasList = extrasRepository.findByTeamId(teamId);
         if (extrasList != null) {
             return extrasList;

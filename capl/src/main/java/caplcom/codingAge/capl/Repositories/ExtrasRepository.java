@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ExtrasRepository extends MongoRepository<Extras, Integer> {
+public interface ExtrasRepository extends MongoRepository<Extras, String> {
 
-    List<Extras> findByTeamId(Integer teamId);
+    List<Extras> findByTeamId(String teamId);
 }

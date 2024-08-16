@@ -7,11 +7,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface MatchResultRepository extends MongoRepository<MatchResult, Integer> {
-    MatchResult findByMatchId(Integer matchId);
+public interface MatchResultRepository extends MongoRepository<MatchResult, String> {
+    MatchResult findByMatchId(String matchId);
 
 
-    List<MatchResult> findByFirstTeamId(Integer teamId);
+    List<MatchResult> findByFirstTeamId(String teamId);
 
-    List<MatchResult> findBySecondTeamId(Integer teamId);
+    List<MatchResult> findBySecondTeamId(String teamId);
 }

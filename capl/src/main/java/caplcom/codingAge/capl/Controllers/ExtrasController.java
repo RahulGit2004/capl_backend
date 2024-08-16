@@ -21,12 +21,12 @@ public class ExtrasController {
     }
 
     @GetMapping("/{id}")
-    Extras getExtrasById(Integer id) {
+    Extras getExtrasById(String id) {
         return extrasService.getExtrasById(id);
     }
 
     @GetMapping("/byTeamId")
-    List<Extras> getExtrasByTeamId(Integer teamId) {
+    List<Extras> getExtrasByTeamId(String teamId) {
         return extrasService.getExtrasByTeamId(teamId);
     }
 
