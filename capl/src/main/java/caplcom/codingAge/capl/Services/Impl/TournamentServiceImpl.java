@@ -5,7 +5,9 @@ import caplcom.codingAge.capl.Models.request.CreateRequests.TournamentRequest;
 import caplcom.codingAge.capl.Repositories.TournamentRepository;
 import caplcom.codingAge.capl.Services.TournamentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TournamentServiceImpl implements TournamentService {
 
     @Autowired
@@ -33,7 +35,8 @@ public class TournamentServiceImpl implements TournamentService {
 
     @Override
     public Tournament removeTeamsFromTournament(Integer tournamentId, Integer teamId) {
-        return tournamentRepository.removeTeamsFromTournament(tournamentId , teamId);
+//        return tournamentRepository.removeTeamsFromTournament(tournamentId , teamId);
+        return  new Tournament();
     }
 
 //    @Override
