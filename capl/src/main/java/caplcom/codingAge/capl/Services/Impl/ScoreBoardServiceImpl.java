@@ -25,6 +25,7 @@ public class ScoreBoardServiceImpl implements ScoreBoardService {
         scoreBoard.setBowlerId(scoreBoardRequest.getBowlerId());
         scoreBoard.setTotalRuns(scoreBoardRequest.getTotalRuns());
         scoreBoard.setOvers(scoreBoardRequest.getOvers());
+        // is it work...
         scoreBoard.setNoOfWickets(scoreBoard.getNoOfWickets());
         return scoreBoardRepository.save(scoreBoard);
     }
@@ -48,6 +49,7 @@ public class ScoreBoardServiceImpl implements ScoreBoardService {
 
     @Override
     public ScoreBoard editScoreBoard(UpdateScoreBoardRequest updateScoreBoardRequest) {
+        // what are you triying to do here...
         ScoreBoard scoreBoard = new ScoreBoard();
         if (scoreBoard != null){
             if (scoreBoard.getFirstTeamId().equals(updateScoreBoardRequest.getFirstTeamId())){

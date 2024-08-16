@@ -12,6 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TournamentRequest {
+    private String tournamentName;
     private Integer seasonYear;
     private Integer creatorId;
     private Date tournamentStartDate;

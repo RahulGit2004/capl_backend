@@ -15,10 +15,11 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Document("Tournament")
+@Document(collection ="Tournament")
 public class Tournament {
     @Id
     private Integer tournamentId;
+    private String tournamentName;
     private Integer seasonYear;
     private Integer creatorId;
     private Integer highestScoreBatterId;

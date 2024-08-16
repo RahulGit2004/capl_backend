@@ -8,13 +8,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document("Teams")
+@Document(collection ="Teams")
 @Getter
 @Setter
 @NoArgsConstructor
 public class Team {
     @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     private Integer teamCreatorId;
     private String teamName;
@@ -22,9 +21,8 @@ public class Team {
     private String teamProfilePhotoUrl;
     private Integer teamCaptainId;
     private String teamCoachName;
-//    @ElementCollection
     private List<Player> playerList;
-    //list of Matches, players, winningMatch, LoosingMatch, drawMatch
+    private List<Match> matchList;
 
 
 }

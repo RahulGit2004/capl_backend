@@ -1,5 +1,6 @@
 package caplcom.codingAge.capl.Models;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,19 +9,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document("TeamStats")
 @Getter
 @Setter
+@Document(collection ="TeamStat")
 @NoArgsConstructor
+@AllArgsConstructor
 public class TeamStats {
     @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-//    @ElementCollection
-    private List<String> matchesWinning ;
-//    @ElementCollection
-    private List<String> matchesLooses ;
-//    @ElementCollection
-    private List<String> matchesDraw ;
-
+    private Integer teamId;
+    private List<Match> matchWinning;
+    private List<Match> matchLosing;
+    private List<Match> matchDrawn;
 }

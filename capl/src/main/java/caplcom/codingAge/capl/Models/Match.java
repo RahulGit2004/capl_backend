@@ -6,22 +6,21 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection ="scoreboard")
+@Document(collection ="Match")
 @Getter
 @Setter
 @NoArgsConstructor
-public class ScoreBoard {
-
+public class Match {
     @Id
     private Integer id;
+    private Integer tournamentId;
+    private Integer creatorId;
     private Integer firstTeamId;
     private Integer secondTeamId;
-    private Integer strikerId;
-    private Integer nonStrikerId;
-    private Integer bowlerId;
-    private int totalRuns;
+    private Integer matchDate;
+    private Integer matchTime;
     private double overs;
-    private int noOfWickets;
-    // List of stats
-    // Extras extras
+    private Integer tossWonTeamId;
+    private String selectionOfTossWinningTeam;
+    // add Scoreboard scoreBoard object for match
 }

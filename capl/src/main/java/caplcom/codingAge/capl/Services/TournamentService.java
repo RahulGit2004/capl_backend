@@ -1,19 +1,23 @@
 package caplcom.codingAge.capl.Services;
 
+import caplcom.codingAge.capl.Models.MatchResult;
 import caplcom.codingAge.capl.Models.Tournament;
 import caplcom.codingAge.capl.Models.request.CreateRequests.TournamentRequest;
+
+import java.util.List;
 
 public interface TournamentService {
 
     Tournament createTournament(TournamentRequest tournamentRequest);
 
-    Tournament findByTournamentById(Integer tournamentId);
+    Tournament findByTournamentId(Integer tournamentId);
 
-    Tournament findTournamentBySeasonYear(Integer tournamentSeasonYear);
+    Tournament findBySeasonYear(Integer tournamentSeasonYear);
 
     Tournament addTeamsInTournament(Integer tournamentId , Integer teamId);
 
-    Tournament removeTeamsFromTournament(Integer tournamentId, Integer teamId);
+    boolean removeTeamFromTournament(Integer tournamentId, Integer teamId);
 
-//    List<Tournament> getAllMatchesByTournamentId(Integer tournamentId);
+//    List<MatchResult> getAllMatchesByTournamentId(Integer tournamentId);
+
 }

@@ -7,7 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Document("player")
+@Document(collection = "player")
 @Getter
 @Setter
 @NoArgsConstructor

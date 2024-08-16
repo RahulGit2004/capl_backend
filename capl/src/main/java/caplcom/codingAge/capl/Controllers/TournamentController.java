@@ -1,10 +1,13 @@
 package caplcom.codingAge.capl.Controllers;
 
+import caplcom.codingAge.capl.Models.MatchResult;
 import caplcom.codingAge.capl.Models.Tournament;
 import caplcom.codingAge.capl.Models.request.CreateRequests.TournamentRequest;
 import caplcom.codingAge.capl.Services.TournamentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/capl/tournament")
@@ -18,13 +21,13 @@ public class TournamentController {
     }
 
     @GetMapping("/findByTournamentId")
-    public Tournament findByTournamentById(@RequestParam Integer tournamentId){
-        return tournamentService.findByTournamentById(tournamentId);
+    public Tournament findByTournamentId(@RequestParam Integer tournamentId){
+        return tournamentService.findByTournamentId(tournamentId);
     }
 
-    @GetMapping("/findTournamentBySeasonYear")
-    public Tournament findTournamentBySeasonYear(@RequestParam Integer tournamentSeasonYear){
-        return tournamentService.findTournamentBySeasonYear(tournamentSeasonYear);
+    @GetMapping("/findBySeasonYear")
+    public Tournament findBySeasonYear(@RequestParam Integer tournamentSeasonYear){
+        return tournamentService.findBySeasonYear(tournamentSeasonYear);
     }
 
     @PutMapping("/addTeamsInTournament")
@@ -32,12 +35,12 @@ public class TournamentController {
         return tournamentService.addTeamsInTournament(tournamentId , teamId);
     }
 
-    @PutMapping("/removeTeamsFromTournament")
-    public Tournament removeTeamsFromTournament(@RequestParam Integer tournamentId , Integer teamId){
-        return tournamentService.removeTeamsFromTournament(tournamentId , teamId);
+    @PutMapping("/removeTeamFromTournament")
+    public boolean removeTeamFromTournament(@RequestParam Integer tournamentId , Integer teamId){
+       return tournamentService.removeTeamFromTournament(tournamentId , teamId);
     }
 
-//    public List<Matches> getAllMatchesByTournamentId(@RequestParam Integer tournamentId){
+//    public List<MatchResult> getAllMatchesByTournamentId(@RequestParam Integer tournamentId){
 //        return tournamentService.getAllMatchesByTournamentId(tournamentId);
 //    }
 

@@ -4,12 +4,10 @@ import caplcom.codingAge.capl.Models.Wicket;
 import caplcom.codingAge.capl.Models.request.CreateRequests.WicketRequest;
 import caplcom.codingAge.capl.Services.WicketService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@SpringBootApplication
 @RestController
 @RequestMapping("/api/v1/wicket")
 public class WicketController {

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Document
+@Document(collection ="stats")
 @AllArgsConstructor
 @NoArgsConstructor
 

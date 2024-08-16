@@ -18,6 +18,7 @@ public class StatsSeviceImpl implements StatsService {
     private StatsRepository statsRepository;
     @Override
     public Stats createStats(StatsRequest statsRequest) {
+        // need the reason behind this..
     Stats stats = statsRepository.findByPlayerId(statsRequest.getPlayerId());
      if (stats != null){
          stats.setMatchId(statsRequest.getMatchId());
@@ -47,6 +48,7 @@ public class StatsSeviceImpl implements StatsService {
 
     @Override
     public Stats updateStats(UpdateStats updateStats) {
+        // id is not in Stats model..
         Optional<Stats> stats=statsRepository.findById(updateStats.getId());
         if (stats.isPresent()){
             Stats stats1 = new Stats();

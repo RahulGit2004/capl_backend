@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Document("MatchResult")
+@Document(collection ="MatchResult")
 public class MatchResult {
     @Id
 //    @GeneratedValue(strategy = GenerationType.SEQUENCE)

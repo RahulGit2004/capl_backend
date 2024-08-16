@@ -3,7 +3,6 @@ package caplcom.codingAge.capl.Services.Impl;
 
 import caplcom.codingAge.capl.Models.Player;
 import caplcom.codingAge.capl.Models.Team;
-import caplcom.codingAge.capl.Models.request.CreateRequests.TeamRequest;
 import caplcom.codingAge.capl.Models.request.UpdateRequests.UpdateTeamRequest;
 import caplcom.codingAge.capl.Repositories.TeamRepository;
 import caplcom.codingAge.capl.Services.PlayerService;
@@ -25,17 +24,16 @@ public class TeamServiceImpl implements TeamService {
     private PlayerService playerService;
     @Autowired
     private UserService userService;
-    @Override
-    public Team createTeam(TeamRequest teamRequest) {
-        if(userService.getUserByUserId(teamRequest.getTeamCreatorId()) != null){
-            Team team = new Team();
-            team.setTeamCreatorId(teamRequest.getTeamCreatorId());
-            team.setTeamName(teamRequest.getTeamName());
-            team.setTeamNickName(teamRequest.getTeamNickName());
-            return teamRepository.save(team);
-        }
-        return null;
-    }
+//    public Team createTeam(TeamRequest teamRequest) {
+//        if(userService.getUserByUserId(teamRequest.getTeamCreatorId()) != null){
+//            Team team = new Team();
+//            team.setTeamCreatorId(teamRequest.getTeamCreatorId());
+//            team.setTeamName(teamRequest.getTeamName());
+//            team.setTeamNickName(teamRequest.getTeamNickName());
+//            return teamRepository.save(team);
+//        }
+//        return null;
+//    }
 
     @Override
     public Team getTeamById(Integer teamId) {
