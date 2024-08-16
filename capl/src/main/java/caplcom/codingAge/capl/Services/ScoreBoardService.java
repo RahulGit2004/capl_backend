@@ -10,9 +10,9 @@ public interface ScoreBoardService {
 
     ScoreBoard createScoreBoard(ScoreBoardRequest scoreBoardRequest);
 
-    ScoreBoard getScoreBoardById(Integer scoreBoardId);
+    ScoreBoard getScoreBoardById(String scoreBoardId);
 
-    ScoreBoard getScoreBoardByTeamId(Integer firstTeamId,Integer secondTeamId);
+    ScoreBoard getScoreBoardByTeamId(String firstTeamId,String secondTeamId);
 
     ScoreBoard editScoreBoard(UpdateScoreBoardRequest updateScoreBoardRequest);
 
