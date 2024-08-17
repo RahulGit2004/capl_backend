@@ -13,13 +13,13 @@ public class TeamStatsServiceImpl implements TeamStatsService {
     TeamStatsRepo teamStatsRepo;
 
     @Override
-    public TeamStats getTeamStatsById(Integer id) {
+    public TeamStats getTeamStatsById(String id) {
         return teamStatsRepo.findById(id).orElse(null);
     }
 
     @Override
     // variable naming convention
-    public TeamStats getTeamStatsByTeamId(Integer teamId) {
+    public TeamStats getTeamStatsByTeamId(String teamId) {
         return teamStatsRepo.findByTeamId(teamId);
     }
     @Override
@@ -31,7 +31,7 @@ public class TeamStatsServiceImpl implements TeamStatsService {
 
     @Override
     // same here
-    public TeamStats editMatchTeamStats(Integer teamId) {
+    public TeamStats editMatchTeamStats(String teamId) {
         // what are you trying to do here...
         TeamStats teamStats=findByTeamId(teamId);
         if (teamStats!=null){
@@ -42,7 +42,7 @@ public class TeamStatsServiceImpl implements TeamStatsService {
         return new TeamStats();
     }
 
-    private TeamStats findByTeamId(Integer teamId) {
+    private TeamStats findByTeamId(String teamId) {
         return teamStatsRepo.findByTeamId(teamId);
     }
 

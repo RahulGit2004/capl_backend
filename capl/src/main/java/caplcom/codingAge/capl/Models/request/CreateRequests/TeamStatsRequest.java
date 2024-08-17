@@ -8,5 +8,5 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class TeamStatsRequest {
-    private Integer TeamId;
+    private String teamId;
 }

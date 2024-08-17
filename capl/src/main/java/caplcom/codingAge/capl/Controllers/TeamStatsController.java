@@ -14,34 +14,34 @@ public class TeamStatsController {
 
     @GetMapping("/seebyid")
     // what we are getting here...
-    public TeamStats getTeamStatsById(@RequestParam Integer id){
+    public TeamStats getTeamStatsById(@RequestParam String id){
       return teamStatsService.getTeamStatsById(id);
     }
     @GetMapping("/seebyTeamid")
     /// same here
-    public TeamStats getTeamStatsByTeamId(@RequestParam Integer teamId){
+    public TeamStats getTeamStatsByTeamId(@RequestParam String teamId){
         return teamStatsService.getTeamStatsByTeamId(teamId);
     }
 /*
     @GetMapping("/seeWonMatchesById")
-    public TeamStats getWinMatchesById(@RequestParam Integer id){
+    public TeamStats getWinMatchesById(@RequestParam String id){
         return teamStatsService.getWinMatchesById(id).get();
     }
 
 
     @GetMapping("/seeWonMatchesByTeamId")
-    public TeamStats getWinMatchesByTeamId(@RequestParam Integer TeamId){
-        return teamStatsService.getWinMatchesByTeamId(TeamId).get();
+    public TeamStats getWinMatchesByTeamId(@RequestParam String teamId){
+        return teamStatsService.getWinMatchesByTeamId(teamId).get();
     }
 
     @GetMapping("/seeLooseMatchesByTeamId")
-    public TeamStats getLooseMatchByTeamId(@RequestParam Integer TeamId){
-        return teamStatsService.getLooseMatchByTeamId(TeamId).get();
+    public TeamStats getLooseMatchByTeamId(@RequestParam String teamId){
+        return teamStatsService.getLooseMatchByTeamId(teamId).get();
     }
 
    @GetMapping("/seeDrawnMatchesByTeamId")
-   public TeamStats getDrawnMatchesByTeamId(@RequestParam Integer TeamId){
-      return teamStatsService.getDrawnMatchesByTeamId(TeamId).get();
+   public TeamStats getDrawnMatchesByTeamId(@RequestParam String teamId){
+      return teamStatsService.getDrawnMatchesByTeamId(teamId).get();
     }
 
  */
@@ -53,18 +53,18 @@ public class TeamStatsController {
     }
 
     @PutMapping("/editmatchTeamStats")
-    public TeamStats editMatchTeamStats(@RequestParam Integer teamId){
+    public TeamStats editMatchTeamStats(@RequestParam String teamId){
         return teamStatsService.editMatchTeamStats(teamId);
     }
 /*
     @PutMapping("/addWonMatches")
-    public TeamStats addWinsmatches(@RequestParam Integer teamId){
+    public TeamStats addWinsmatches(@RequestParam String teamId){
         return teamStatsService.addWinsmatches(teamId);
     }
 
     @PutMapping("/addDrawMatches")
-    public TeamStats addDrawnMatches(@RequestParam Integer teamId){
-        return teamStatsService.addDrawnMatches(TeamId);
+    public TeamStats addDrawnMatches(@RequestParam String teamId){
+        return teamStatsService.addDrawnMatches(teamId);
     }
 
  */
