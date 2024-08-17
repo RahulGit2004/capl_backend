@@ -9,7 +9,7 @@ import java.util.List;
 public interface StatsService {
     Stats createStats(StatsRequest statsRequest);
 
-    Stats getStatsById(Integer statsId);
+    Stats getStatsById(String statsId);
 
     Stats updateStats(UpdateStats updateStats);
 
