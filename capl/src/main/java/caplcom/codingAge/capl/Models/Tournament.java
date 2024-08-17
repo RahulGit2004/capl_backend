@@ -18,13 +18,13 @@ import java.util.List;
 @Document(collection ="Tournament")
 public class Tournament {
     @Id
-    private Integer tournamentId;
+    private String tournamentId;
     private String tournamentName;
-    private Integer seasonYear;
-    private Integer creatorId;
-    private Integer highestScoreBatterId;
-    private Integer highestScoreBowlerId;
-    private Integer winnerTeam;
+    private String seasonYear;
+    private String creatorId;
+    private String highestScoreBatterId;
+    private String highestScoreBowlerId;
+    private String winnerTeam;
     private Date tournamentStartDate;
     private Date tournamentEndDate;
     private String stadiumName;

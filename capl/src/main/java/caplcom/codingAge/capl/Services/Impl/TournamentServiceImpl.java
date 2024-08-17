@@ -34,17 +34,17 @@ public class TournamentServiceImpl implements TournamentService {
     }
 
     @Override
-    public Tournament findByTournamentId(Integer tournamentId) {
+    public Tournament findByTournamentId(String tournamentId) {
         return tournamentRepository.findByTournamentId(tournamentId);
     }
 
     @Override
-    public Tournament findBySeasonYear(Integer tournamentSeasonYear) {
+    public Tournament findBySeasonYear(String tournamentSeasonYear) {
         return tournamentRepository.findBySeasonYear(tournamentSeasonYear);
     }
 
     @Override
-    public Tournament addTeamsInTournament(Integer tournamentId , Integer teamId) {
+    public Tournament addTeamsInTournament(String tournamentId , String teamId) {
         Tournament tournament = findByTournamentId(tournamentId);
 
         if (tournament != null){
@@ -60,7 +60,7 @@ public class TournamentServiceImpl implements TournamentService {
     }
 
     @Override
-    public boolean removeTeamFromTournament(Integer tournamentId, Integer teamId) {
+    public boolean removeTeamFromTournament(String tournamentId, String teamId) {
         Tournament tournament = findByTournamentId(tournamentId);
         if(tournament != null){
             for(Team team : getListOfTeamsOfTournament(tournamentId)){
@@ -75,14 +75,14 @@ public class TournamentServiceImpl implements TournamentService {
     }
 
 //    @Override
-//    public List<MatchResult> getAllMatchesByTournamentId(Integer tournamentId) {
+//    public List<MatchResult> getAllMatchesByTournamentId(String tournamentId) {
 //        MatchResultService matchResultService = new MatchResultServiceImpl();
 //        matchResultService.getMatchByTournament()
 //        return List.of();
 //    }
 
 
-    List<Team> getListOfTeamsOfTournament(Integer tournamentId){
+    List<Team> getListOfTeamsOfTournament(String tournamentId){
         Tournament tournament = findByTournamentId(tournamentId);
         if (tournament != null){
             return tournament.getTeamList();

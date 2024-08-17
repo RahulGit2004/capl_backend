@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TournamentRepository extends MongoRepository<Tournament, Integer> {
 
-    Tournament findByTournamentId(Integer tournamentId);
+    Tournament findByTournamentId(String tournamentId);
 
-    Tournament findBySeasonYear(Integer tournamentSeasonYear);
+    Tournament findBySeasonYear(String tournamentSeasonYear);
 
 //    Tournament addTeamsInTournament(Integer tournamentId , Integer teamId);
 
