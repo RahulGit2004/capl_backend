@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface TeamRepository extends MongoRepository<Team, Integer> {
 
-    Team findByTeamCreatorId(Integer creatorId);
+    Team findByTeamCreatorId(String creatorId);
 
-    Team findByTeamNickName(String teamNickName);
+    Team findByTeamId(String teamId);
 }

@@ -8,10 +8,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class MatchRequest {
-    private Integer tournamentId;
-    private Integer creatorId;
-    private Integer firstTeamId;
-    private Integer secondTeamId;
+    private String tournamentId;
+    private String creatorId;
+    private String firstTeamId;
+    private String secondTeamId;
     private Integer matchDate;
     private Integer matchTime;
     private double overs;
