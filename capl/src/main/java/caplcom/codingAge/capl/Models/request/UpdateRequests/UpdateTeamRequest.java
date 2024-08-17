@@ -8,11 +8,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class UpdateTeamRequest {
-    private Integer teamId;
-    private Integer creatorId;
+    private String teamId;
+    private String creatorId;
     private String teamName;
     private String teamNickName;
     private String teamProfilePhotoUrl;
-    private Integer teamCaptainId;
+    private String teamCaptainId;
     private String teamCoachName;
 }

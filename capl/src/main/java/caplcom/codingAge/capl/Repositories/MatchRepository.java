@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface MatchRepository extends MongoRepository<Match, Integer> {
     List<Match> findAllByFirstTeamId(Integer teamId);
+
+    Match findByMatchId(String id);
 }

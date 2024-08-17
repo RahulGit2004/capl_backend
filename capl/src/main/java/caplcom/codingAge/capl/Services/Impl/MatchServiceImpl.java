@@ -1,6 +1,8 @@
 package caplcom.codingAge.capl.Services.Impl;
 
 import caplcom.codingAge.capl.Models.Match;
+import caplcom.codingAge.capl.Models.Team;
+import caplcom.codingAge.capl.Models.request.CreateRequests.MatchRequest;
 import caplcom.codingAge.capl.Models.request.UpdateRequests.UpdateMatchRequest;
 import caplcom.codingAge.capl.Repositories.MatchRepository;
 import caplcom.codingAge.capl.Services.MatchService;
@@ -25,31 +27,46 @@ public class MatchServiceImpl implements MatchService {
     @Autowired
     private TeamService teamService;
     @Override
-//    public Match createMatch(MatchRequest matchRequest) {
-//        if (userService.getUserByUserId(matchRequest.getCreatorId()) != null){
-//            Match match = new Match();
-//            match.setCreatorId(matchRequest.getCreatorId());
-//            match.setTournamentId(matchRequest.getTournamentId());
-//            match.setFirstTeamId(matchRequest.getFirstTeamId());
-//            match.setSecondTeamId(matchRequest.getSecondTeamId());
-//            match.setMatchDate(matchRequest.getMatchDate());
-//            match.setMatchTime(matchRequest.getMatchTime());
-//            match.setOvers(matchRequest.getOvers());
-//            return matchRepository.save(match);
-//        }else if(playerService.getPlayerById(matchRequest.getCreatorId()) != null){
-//            Match match = new Match();
-//            match.setCreatorId(matchRequest.getCreatorId());
-//            match.setTournamentId(matchRequest.getTournamentId());
-//            match.setFirstTeamId(matchRequest.getFirstTeamId());
-//            match.setSecondTeamId(matchRequest.getSecondTeamId());
-//            match.setMatchDate(matchRequest.getMatchDate());
-//            match.setMatchTime(matchRequest.getMatchTime());
-//            match.setOvers(matchRequest.getOvers());
-//            return matchRepository.save(match);
-//        }else{
-//            return null;
-//        }
-//    }
+    public Match createMatch(MatchRequest matchRequest) {
+        if (userService.getUserByUserId(matchRequest.getCreatorId()) != null){
+            Team firstTeam = teamService.getTeamById(matchRequest.getFirstTeamId());
+            Team secondTeam = teamService.getTeamById(matchRequest.getFirstTeamId());
+            if(firstTeam != null && secondTeam != null){
+                Match match = new Match();
+                match.setCreatorId(matchRequest.getCreatorId());
+                match.setTournamentId(matchRequest.getTournamentId());
+                match.setFirstTeamId(matchRequest.getFirstTeamId());
+                match.setSecondTeamId(matchRequest.getSecondTeamId());
+                match.setMatchDate(matchRequest.getMatchDate());
+                match.setMatchTime(matchRequest.getMatchTime());
+                match.setOvers(matchRequest.getOvers());
+                firstTeam.getMatchList().add(match);
+                teamService.saveUpdates(firstTeam);
+                secondTeam.getMatchList().add(match);
+                teamService.saveUpdates(secondTeam);
+                return matchRepository.save(match);
+            }
+        }else if(playerService.getPlayerById(matchRequest.getCreatorId()) != null){
+            Team firstTeam = teamService.getTeamById(matchRequest.getFirstTeamId());
+            Team secondTeam = teamService.getTeamById(matchRequest.getFirstTeamId());
+            if(firstTeam != null && secondTeam != null){
+                Match match = new Match();
+                match.setCreatorId(matchRequest.getCreatorId());
+                match.setTournamentId(matchRequest.getTournamentId());
+                match.setFirstTeamId(matchRequest.getFirstTeamId());
+                match.setSecondTeamId(matchRequest.getSecondTeamId());
+                match.setMatchDate(matchRequest.getMatchDate());
+                match.setMatchTime(matchRequest.getMatchTime());
+                match.setOvers(matchRequest.getOvers());
+                firstTeam.getMatchList().add(match);
+                teamService.saveUpdates(firstTeam);
+                secondTeam.getMatchList().add(match);
+                teamService.saveUpdates(secondTeam);
+                return matchRepository.save(match);
+            }
+        }
+        return null;
+    }
 
     public Match editMatchDetails(UpdateMatchRequest updateMatchRequest) {
         Match match = getMatchById(updateMatchRequest.getMatchId());
@@ -66,12 +83,16 @@ public class MatchServiceImpl implements MatchService {
         return null;
     }
     @Override
-    public Match getMatchById(Integer id) {
-        return matchRepository.findById(id).orElse(null);
+    public Match getMatchById(String id) {
+        return matchRepository.findByMatchId(id);
     }
 
     @Override
-    public List<Match> getMatchesByTeamId(Integer teamId) {
+    public List<Match> getMatchesByTeamId(String teamId) {
         return teamService.getTeamById(teamId).getMatchList();
+    }
+    @Override
+    public Match saveUpdates(Match match) {
+        return matchRepository.save(match);
     }
 }

@@ -21,7 +21,7 @@ public class PlayerController {
         return playerService.createPlayer(playerRequest);
     }
     @GetMapping("/get/player")
-    public Player getPlayerById(@RequestParam Integer playerId){
+    public Player getPlayerById(@RequestParam String playerId){
         return playerService.getPlayerById(playerId);
     }
 

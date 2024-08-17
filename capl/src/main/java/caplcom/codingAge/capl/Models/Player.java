@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Player {
     @Id
 //    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    private String playerId;
     private String playerPhotoUrl;
     private String playerName;
     private String playerPhone;

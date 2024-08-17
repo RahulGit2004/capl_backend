@@ -12,15 +12,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 public class Match {
     @Id
-    private Integer id;
-    private Integer tournamentId;
-    private Integer creatorId;
-    private Integer firstTeamId;
-    private Integer secondTeamId;
+    private String matchId;
+    private String tournamentId;
+    private String creatorId;
+    private String  firstTeamId;
+    private String secondTeamId;
     private Integer matchDate;
     private Integer matchTime;
     private double overs;
-    private Integer tossWonTeamId;
+    private String tossWonTeamId;
     private String selectionOfTossWinningTeam;
-    // add Scoreboard scoreBoard object for match
+    private ScoreBoard scoreBoard;
 }

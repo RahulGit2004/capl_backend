@@ -15,9 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Wicket {
 
     @Id
-
     private Integer wicketId;
-
     private String wicketDescription;
     private Integer bowlerId;
     private Integer teamId;

@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class TeamRequest {
-    private Integer teamCreatorId;
+    private String teamCreatorId;
     private String teamName;
     private String teamNickName;
 }
