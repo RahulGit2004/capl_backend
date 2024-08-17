@@ -21,17 +21,17 @@ public class WicketController {
     }
 
     @GetMapping("/wicket/byId")
-    public Wicket getWicketById (@RequestParam Integer wicketId) {
+    public Wicket getWicketById (@RequestParam String wicketId) {
         return wicketService.getWicketById(wicketId);
     }
 
     @GetMapping("/wickets/by/bowler")
-    public List<Wicket> getWicketsByBowlerId (@RequestParam Integer bowlerId) {
+    public List<Wicket> getWicketsByBowlerId (@RequestParam String bowlerId) {
         return wicketService.getWicketsByBowlerId(bowlerId);
     }
     // why need this api
     @GetMapping("/wickets/by/batter")
-    public List<Wicket> getWicketsByBatterId(@RequestParam Integer batterId) {
+    public List<Wicket> getWicketsByBatterId(@RequestParam String batterId) {
         return wicketService.getWicketsByBatterId(batterId);
     }
 

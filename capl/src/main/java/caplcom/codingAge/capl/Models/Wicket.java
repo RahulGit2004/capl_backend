@@ -15,13 +15,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Wicket {
 
     @Id
-
-    private Integer wicketId;
-
+    private String wicketId;
     private String wicketDescription;
-    private Integer bowlerId;
-    private Integer teamId;
-    private Integer batterId;
-    private Integer fielderId;
+    private String bowlerId;
+    private String teamId;
+    private String batterId;
+    private String fielderId;
 
 }

@@ -11,10 +11,10 @@ import lombok.Setter;
 @NoArgsConstructor
 public class WicketRequest {
 
-    private Integer batterId;
-    private Integer bowlerId;
-    private Integer teamId;
-    private Integer fielderId;
+    private String batterId;
+    private String bowlerId;
+    private String teamId;
+    private String fielderId;
     private String wicketDescription;
 
 }

@@ -7,6 +7,8 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document(collection ="seasonDetail")
 @Getter
 @Setter
@@ -15,9 +17,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class SeasonDetail {
 
     @Id
-    private Integer seasonDetailId;
+    private String seasonDetailId;
 
     private String seasonYear;
+    private List<Tournament> tournamentList;
+    private List<Stats> statsList;
 
 
 
