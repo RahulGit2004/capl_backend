@@ -18,12 +18,12 @@ public class MatchResultController {
     MatchResultService matchResultService;
 
     @GetMapping("/byMatchId")
-    MatchResult getMatchById(Integer matchId) {
+    MatchResult getMatchById(String matchId) {
         return matchResultService.getMatchById(matchId);
     }
 
     @GetMapping("/lists")
-    List<MatchResult> getMatchByTeamId(Integer teamId) {
+    List<MatchResult> getMatchByTeamId(String teamId) {
         return matchResultService.getMatchByTeamId(teamId);
     }
 

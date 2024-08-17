@@ -15,9 +15,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Extras")
 public class Extras {
     @Id
-    private Integer id;
-    private Integer teamId;
-    private Integer wideRun;
-    private Integer legByRun;
-    private Integer noBallRun;
+    private String id;
+    private String teamId;
+    private String wideRun;
+    private String legByRun;
+    private String noBallRun;
 }

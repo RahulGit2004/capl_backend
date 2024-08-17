@@ -9,9 +9,9 @@ import java.util.List;
 public interface ExtrasService {
     Extras createExtras(ExtrasRequest extrasRequest);
 
-    Extras getExtrasById(Integer id);
+    Extras getExtrasById(String id);
 
-    List<Extras> getExtrasByTeamId(Integer teamId);
+    List<Extras> getExtrasByTeamId(String teamId);
 
     Extras updateExtrasById(UpdateExtras updateExtras);
 }

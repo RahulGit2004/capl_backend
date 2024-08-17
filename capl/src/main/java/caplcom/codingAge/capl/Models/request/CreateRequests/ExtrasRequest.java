@@ -10,8 +10,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ExtrasRequest {
-    private Integer teamId;
-    private Integer wideRun;
-    private Integer legByRun;
-    private Integer noBallRun;
+    private String teamId;
+    private String wideRun;
+    private String legByRun;
+    private String noBallRun;
 }

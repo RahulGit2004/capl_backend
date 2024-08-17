@@ -8,6 +8,9 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.sql.Time;
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,14 +19,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class MatchResult {
     @Id
 //    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
-    private Integer matchId;
-    private Integer tournamentId;
-    private Integer firstTeamId;
-    private Integer secondTeamId;
-    private String matchDate;
-    private String matchTime;
+    private String id;
+    private String matchId;
+    private String tournamentId;
+    private String firstTeamId;
+    private String secondTeamId;
+    private Date matchDate;
+    private Time matchTime;
     private String tossWon;
     private String tossSelected;
-    private String ScoreCard;
+    private ScoreBoard ScoreCard;
 }
