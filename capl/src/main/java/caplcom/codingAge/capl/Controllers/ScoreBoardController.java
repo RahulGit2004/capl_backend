@@ -23,12 +23,12 @@ public class ScoreBoardController {
     }
 
     @GetMapping("/get/scoreboardById")
-    public ScoreBoard getScoreBoardById (@RequestParam Integer scoreBoardId){
+    public ScoreBoard getScoreBoardById (@RequestParam String scoreBoardId){
         return scoreBoardService.getScoreBoardById (scoreBoardId);
     }
 
     @GetMapping("/get/scoreboardTeamById")
-    public ScoreBoard getScoreBoardByTeamId(@RequestParam Integer firstTeamId , Integer secondTeamId){
+    public ScoreBoard getScoreBoardByTeamId(@RequestParam String firstTeamId , String secondTeamId){
         return scoreBoardService.getScoreBoardByTeamId(firstTeamId,secondTeamId);
     }
 

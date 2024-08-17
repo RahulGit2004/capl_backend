@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document(collection ="scoreboard")
 @Getter
 @Setter
@@ -13,15 +15,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ScoreBoard {
 
     @Id
-    private Integer id;
-    private Integer firstTeamId;
-    private Integer secondTeamId;
-    private Integer strikerId;
-    private Integer nonStrikerId;
-    private Integer bowlerId;
+    private String id;
+    private String firstTeamId;
+    private String secondTeamId;
+    private String strikerId;
+    private String nonStrikerId;
+    private String bowlerId;
     private int totalRuns;
     private double overs;
     private int noOfWickets;
-    // List of stats
-    // Extras extras
+    private List <Stats> statsList;
+    Extras extras;
 }

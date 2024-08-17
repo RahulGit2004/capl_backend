@@ -25,19 +25,18 @@ public class ScoreBoardServiceImpl implements ScoreBoardService {
         scoreBoard.setBowlerId(scoreBoardRequest.getBowlerId());
         scoreBoard.setTotalRuns(scoreBoardRequest.getTotalRuns());
         scoreBoard.setOvers(scoreBoardRequest.getOvers());
-        // is it work...
-        scoreBoard.setNoOfWickets(scoreBoard.getNoOfWickets());
+        scoreBoard.setNoOfWickets(scoreBoardRequest.getNoOfWickets());
         return scoreBoardRepository.save(scoreBoard);
     }
 
     @Override
-    public ScoreBoard getScoreBoardById(Integer scoreBoardId) {
+    public ScoreBoard getScoreBoardById(String scoreBoardId) {
         return scoreBoardRepository.findById(scoreBoardId).orElse(null);
     }
 
 
     @Override
-    public ScoreBoard getScoreBoardByTeamId(Integer firstTeamId, Integer secondTeamId) {
+    public ScoreBoard getScoreBoardByTeamId(String firstTeamId, String secondTeamId) {
         List <ScoreBoard> scoreBoardList = scoreBoardRepository.findAllByFirstTeamId(firstTeamId);
         for (ScoreBoard scoreBoard : scoreBoardList){
             if (scoreBoard.getSecondTeamId().equals(secondTeamId)){
@@ -49,10 +48,10 @@ public class ScoreBoardServiceImpl implements ScoreBoardService {
 
     @Override
     public ScoreBoard editScoreBoard(UpdateScoreBoardRequest updateScoreBoardRequest) {
-        // what are you triying to do here...
-        ScoreBoard scoreBoard = new ScoreBoard();
+        ScoreBoard scoreBoard =getScoreBoardById(updateScoreBoardRequest.getScoreboardId());
         if (scoreBoard != null){
             if (scoreBoard.getFirstTeamId().equals(updateScoreBoardRequest.getFirstTeamId())){
+                scoreBoard.getSecondTeamId().equals(updateScoreBoardRequest.getSecondTeamId());
                 scoreBoard.setStrikerId(updateScoreBoardRequest.getStrikerId());
                 scoreBoard.setNonStrikerId(updateScoreBoardRequest.getNonStrikerId());
                 scoreBoard.setBowlerId(updateScoreBoardRequest.getBowlerId());
