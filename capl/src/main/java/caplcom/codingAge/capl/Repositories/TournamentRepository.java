@@ -5,11 +5,11 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TournamentRepository extends MongoRepository<Tournament, Integer> {
+public interface TournamentRepository extends MongoRepository<Tournament, String> {
 
-    Tournament findByTournamentId(Integer tournamentId);
+    Tournament findByTournamentId(String tournamentId);
 
-    Tournament findBySeasonYear(Integer tournamentSeasonYear);
+    Tournament findBySeasonYear(String tournamentSeasonYear);
 
 //    Tournament addTeamsInTournament(Integer tournamentId , Integer teamId);
 

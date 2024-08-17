@@ -13,8 +13,8 @@ import java.util.Date;
 @NoArgsConstructor
 public class TournamentRequest {
     private String tournamentName;
-    private Integer seasonYear;
-    private Integer creatorId;
+    private String seasonYear;
+    private String creatorId;
     private Date tournamentStartDate;
     private Date tournamentEndDate;
     private String stadiumName;

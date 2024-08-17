@@ -15,12 +15,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class SeasonDetail {
 
     @Id
-
     private Integer seasonDetailId;
 
     private String seasonYear;
 
-    // todo need List<Tournament> and List<Stats>
+
 
 
 }
