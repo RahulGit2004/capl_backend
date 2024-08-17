@@ -30,6 +30,6 @@ public class Tournament {
     private String stadiumName;
     private String stadiumAddress;
 
-
+// it has to be List<TeamStats>
     private List<Team> teamList;
 }

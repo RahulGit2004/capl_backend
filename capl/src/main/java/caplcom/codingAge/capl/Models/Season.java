@@ -9,21 +9,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document(collection ="seasonDetail")
+@Document(collection ="Season")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SeasonDetail {
-
+public class Season {
     @Id
     private String seasonDetailId;
-
     private String seasonYear;
     private List<Tournament> tournamentList;
     private List<Stats> statsList;
-
-
-
-
+    private List<Match> matchList;
 }

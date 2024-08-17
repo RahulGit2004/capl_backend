@@ -13,12 +13,12 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class StatsSeviceImpl implements StatsService {
+public class StatsServiceImpl implements StatsService {
     @Autowired
     private StatsRepository statsRepository;
     @Override
     public Stats createStats(StatsRequest statsRequest) {
-        // need the reason behind this..
+        // need the reason behind this...
         Stats stats = statsRepository.findByPlayerId(statsRequest.getPlayerId());
         if (stats != null){
             stats.setMatchId(statsRequest.getMatchId());

@@ -1,7 +1,7 @@
 package caplcom.codingAge.capl.Controllers;
 
-import caplcom.codingAge.capl.Models.SeasonDetail;
-import caplcom.codingAge.capl.Services.SeasonDetailService;
+import caplcom.codingAge.capl.Models.Season;
+import caplcom.codingAge.capl.Services.SeasonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,21 +10,26 @@ import org.springframework.web.bind.annotation.*;
 public class SeasonDetailController {
 
     @Autowired
-    private SeasonDetailService seasonDetailService;
+    private SeasonService seasonService;
 
     //
 
-//    public SeasonDetail createSeasonDetail() {
-//        return seasonDetailService.createSeasonDetail();
-//    }
+    public Season createSeasonDetail(@RequestParam String seasonYear) {
+        return seasonService.createSeasonDetail(seasonYear);
+    }
 
     @PutMapping("/update/season/details")
-    public SeasonDetail updateSeasonDetailBySeasonYear (@RequestParam String seasonYear) {
-        return seasonDetailService.updateSeasonDetailBySeasonYear(seasonYear);
+    public Season updateSeasonDetailBySeasonYear (@RequestParam String seasonYear, String tournamentId) {
+        return seasonService.updateSeasonBySeasonYear(seasonYear, tournamentId);
     }
 
     @GetMapping("/season/detail/by/tournament")
-    public SeasonDetail getSeasonDetailByTournamentId (@RequestParam Integer tournamentId) {
-        return seasonDetailService.getSeasonDetailByTournamentId(tournamentId);
+    public Season getSeasonDetailByTournamentId (@RequestParam String tournamentId, String seasonYear) {
+        return seasonService.getSeasonDetailByTournamentId(tournamentId,seasonYear);
+    }
+
+    @GetMapping("/season/details/by/seasonId")
+    public Season getSeasonDetailBySeasonYear(@RequestParam String seasonYear) {
+        return seasonService.getSeasonBySeasonYear(seasonYear);
     }
 }

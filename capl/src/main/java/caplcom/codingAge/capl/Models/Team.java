@@ -14,15 +14,16 @@ import java.util.List;
 @NoArgsConstructor
 public class Team {
     @Id
-    private Integer id;
-    private Integer teamCreatorId;
+    private String teamId;
+    private String teamCreatorId;
     private String teamName;
     private String teamNickName;
     private String teamProfilePhotoUrl;
-    private Integer teamCaptainId;
+    private String teamCaptainId;
     private String teamCoachName;
     private List<Player> playerList;
     private List<Match> matchList;
+    // here we need List<TeamStats>
 
 
 }

@@ -1,9 +1,11 @@
 package caplcom.codingAge.capl.Services.Impl;
 
+import caplcom.codingAge.capl.Models.Season;
 import caplcom.codingAge.capl.Models.Team;
 import caplcom.codingAge.capl.Models.Tournament;
 import caplcom.codingAge.capl.Models.request.CreateRequests.TournamentRequest;
 import caplcom.codingAge.capl.Repositories.TournamentRepository;
+import caplcom.codingAge.capl.Services.SeasonService;
 import caplcom.codingAge.capl.Services.TournamentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,17 +22,29 @@ public class TournamentServiceImpl implements TournamentService {
     @Autowired
     private TeamServiceImpl teamService;
 
+    @Autowired
+    private SeasonService seasonService;
+
     @Override
     public Tournament createTournament(TournamentRequest tournamentRequest) {
         Tournament tournament = new Tournament();
-        tournament.setTournamentName(tournamentRequest.getTournamentName());
-        tournament.setTournamentStartDate(tournamentRequest.getTournamentStartDate());
-        tournament.setTournamentEndDate(tournamentRequest.getTournamentEndDate());
-        tournament.setSeasonYear(tournamentRequest.getSeasonYear());
-        tournament.setStadiumName(tournamentRequest.getStadiumName());
-        tournament.setStadiumAddress(tournamentRequest.getStadiumAddress());
-        tournament.setCreatorId(tournamentRequest.getCreatorId());
-        return tournamentRepository.save(tournament);
+        // extra things added
+        Season season = seasonService.getSeasonBySeasonYear(tournamentRequest.getSeasonYear());
+
+        if (season == null) {
+            return new Tournament();
+        } else {
+            tournament.setTournamentName(tournamentRequest.getTournamentName());
+            tournament.setTournamentStartDate(tournamentRequest.getTournamentStartDate());
+            tournament.setTournamentEndDate(tournamentRequest.getTournamentEndDate());
+            tournament.setSeasonYear(tournamentRequest.getSeasonYear());
+            tournament.setStadiumName(tournamentRequest.getStadiumName());
+            tournament.setStadiumAddress(tournamentRequest.getStadiumAddress());
+            tournament.setCreatorId(tournamentRequest.getCreatorId());
+            // adding here
+            season.getTournamentList().add(tournament);
+            return tournamentRepository.save(tournament);
+        }
     }
 
     @Override
@@ -64,7 +78,7 @@ public class TournamentServiceImpl implements TournamentService {
         Tournament tournament = findByTournamentId(tournamentId);
         if(tournament != null){
             for(Team team : getListOfTeamsOfTournament(tournamentId)){
-                if(team.getId().equals(teamId)){
+                if(team.getTeamId().equals(teamId)){
                     getListOfTeamsOfTournament(teamId).remove(team);
                     tournamentRepository.save(tournament);
                     return true;

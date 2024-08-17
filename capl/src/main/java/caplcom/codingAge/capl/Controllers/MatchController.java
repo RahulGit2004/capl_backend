@@ -24,7 +24,7 @@ public class MatchController {
         return matchService.editMatchDetails(updateMatchRequest);
     }
     @GetMapping("/matches/by/TeamId")
-    public List<Match> getMatchesByTeamId(@RequestParam Integer teamId){
+    public List<Match> getMatchesByTeamId(@RequestParam String teamId){
         return matchService.getMatchesByTeamId(teamId);
     }
 }
