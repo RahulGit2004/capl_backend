@@ -18,11 +18,11 @@ import java.util.List;
 
 public class Stats {
     @Id
-    private Integer statsId;
+    private String statsId;
 
-    private Integer matchId;
-    private Integer teamId;
-    private Integer playerId;
+    private String matchId;
+    private String teamId;
+    private String playerId;
     private int totalRuns;
     private double strikeRate;
     private double economyRate;

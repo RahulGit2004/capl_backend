@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ScoreBoardRepository extends MongoRepository<ScoreBoard, Integer> {
+public interface ScoreBoardRepository extends MongoRepository <ScoreBoard, String> {
 
-    ScoreBoard findByFirstTeamId (Integer firstTeamId);
+    ScoreBoard findByFirstTeamId (String firstTeamId);
 
-    List<ScoreBoard> findAllByFirstTeamId(Integer firstTeamId);
+    List<ScoreBoard> findAllByFirstTeamId(String firstTeamId);
 }
