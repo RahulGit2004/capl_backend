@@ -16,8 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 public class TeamStats {
     @Id
-    private Integer id;
-    private Integer teamId;
+    private String id;
+    private String teamId;
     private List<Match> matchWinning;
     private List<Match> matchLosing;
     private List<Match> matchDrawn;
