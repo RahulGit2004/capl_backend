@@ -28,11 +28,13 @@ public class MatchServiceImpl implements MatchService {
     private TeamService teamService;
     @Override
     public Match createMatch(MatchRequest matchRequest) {
-        if (userService.getUserByUserId(matchRequest.getCreatorId()) != null) {
-            Team firstTeam = teamService.getTeamById(matchRequest.getFirstTeamId());
+//        if (userService.getUserByUserId(matchRequest.getCreatorId()) != null) {
+//            Team firstTeam = teamService.getTeamById(matchRequest.getFirstTeamId());
+            Team firstTeam = new Team();
+            Team secondTeam = new Team();
             // both are same things why...
-            Team secondTeam = teamService.getTeamById(matchRequest.getFirstTeamId());
-            if(firstTeam != null && secondTeam != null) {
+//            Team secondTeam = teamService.getTeamById(matchRequest.getFirstTeamId());
+//            if(firstTeam != null && secondTeam != null) {
                 Match match = new Match();
                 match.setCreatorId(matchRequest.getCreatorId());
                 match.setTournamentId(matchRequest.getTournamentId());
@@ -46,27 +48,28 @@ public class MatchServiceImpl implements MatchService {
                 secondTeam.getMatchList().add(match);
                 teamService.saveUpdates(secondTeam);
                 return matchRepository.save(match);
-            }
-        } else if(playerService.getPlayerById(matchRequest.getCreatorId()) != null){
-            Team firstTeam = teamService.getTeamById(matchRequest.getFirstTeamId());
-            Team secondTeam = teamService.getTeamById(matchRequest.getFirstTeamId());
-            if(firstTeam != null && secondTeam != null){
-                Match match = new Match();
-                match.setCreatorId(matchRequest.getCreatorId());
-                match.setTournamentId(matchRequest.getTournamentId());
-                match.setFirstTeamId(matchRequest.getFirstTeamId());
-                match.setSecondTeamId(matchRequest.getSecondTeamId());
-                match.setMatchDate(matchRequest.getMatchDate());
-                match.setMatchTime(matchRequest.getMatchTime());
-                match.setOvers(matchRequest.getOvers());
-                firstTeam.getMatchList().add(match);
-                teamService.saveUpdates(firstTeam);
-                secondTeam.getMatchList().add(match);
-                teamService.saveUpdates(secondTeam);
-                return matchRepository.save(match);
-            }
-        }
-        return null;
+//            }
+//        }
+//        else if(playerService.getPlayerById(matchRequest.getCreatorId()) != null){
+//            Team firstTeam = teamService.getTeamById(matchRequest.getFirstTeamId());
+//            Team secondTeam = teamService.getTeamById(matchRequest.getFirstTeamId());
+//            if(firstTeam != null && secondTeam != null){
+//                Match match = new Match();
+//                match.setCreatorId(matchRequest.getCreatorId());
+//                match.setTournamentId(matchRequest.getTournamentId());
+//                match.setFirstTeamId(matchRequest.getFirstTeamId());
+//                match.setSecondTeamId(matchRequest.getSecondTeamId());
+//                match.setMatchDate(matchRequest.getMatchDate());
+//                match.setMatchTime(matchRequest.getMatchTime());
+//                match.setOvers(matchRequest.getOvers());
+//                firstTeam.getMatchList().add(match);
+//                teamService.saveUpdates(firstTeam);
+//                secondTeam.getMatchList().add(match);
+//                teamService.saveUpdates(secondTeam);
+//                return matchRepository.save(match);
+//            }
+//        }
+
     }
 
     public Match editMatchDetails(UpdateMatchRequest updateMatchRequest) {

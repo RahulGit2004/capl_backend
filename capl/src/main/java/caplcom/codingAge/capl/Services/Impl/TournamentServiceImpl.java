@@ -20,20 +20,18 @@ public class TournamentServiceImpl implements TournamentService {
     private TournamentRepository tournamentRepository;
 
     @Autowired
-    private TeamServiceImpl teamService;
-
-    @Autowired
     private SeasonService seasonService;
 
     @Override
     public Tournament createTournament(TournamentRequest tournamentRequest) {
-        Tournament tournament = new Tournament();
+
         // extra things added
         Season season = seasonService.getSeasonBySeasonYear(tournamentRequest.getSeasonYear());
 
         if (season == null) {
             return new Tournament();
         } else {
+            Tournament tournament = new Tournament();
             tournament.setTournamentName(tournamentRequest.getTournamentName());
             tournament.setTournamentStartDate(tournamentRequest.getTournamentStartDate());
             tournament.setTournamentEndDate(tournamentRequest.getTournamentEndDate());
@@ -43,6 +41,7 @@ public class TournamentServiceImpl implements TournamentService {
             tournament.setCreatorId(tournamentRequest.getCreatorId());
             // adding here
             season.getTournamentList().add(tournament);
+            // add season repo...
             return tournamentRepository.save(tournament);
         }
     }

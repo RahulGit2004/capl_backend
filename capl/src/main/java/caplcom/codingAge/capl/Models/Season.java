@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection ="Season")
@@ -16,9 +17,9 @@ import java.util.List;
 @NoArgsConstructor
 public class Season {
     @Id
-    private String seasonDetailId;
+    private String seasonId;
     private String seasonYear;
-    private List<Tournament> tournamentList;
-    private List<Stats> statsList;
-    private List<Match> matchList;
+    private List<Tournament> tournamentList = new ArrayList<>();
+    private List<Stats> statsList = new ArrayList<>();
+    private List<Match> matchList =new ArrayList<>();
 }

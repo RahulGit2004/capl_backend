@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,5 +32,5 @@ public class Tournament {
     private String stadiumAddress;
 
 // it has to be List<TeamStats>
-    private List<Team> teamList;
+    private List<Team> teamList = new ArrayList<>();
 }

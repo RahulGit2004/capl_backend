@@ -29,7 +29,7 @@ public class PlayerServiceImpl implements PlayerService {
     }
     @Override
     public Player getPlayerById(String playerId) {
-        return playerRepository.findByIdPlayerId(playerId);
+        return playerRepository.findByPlayerId(playerId);
     }
     @Override
     public List<Player> getListOfPlayer() {

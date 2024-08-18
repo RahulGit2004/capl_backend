@@ -7,21 +7,21 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping ("/api/v1/season/details")
-public class SeasonDetailController {
+public class SeasonController {
 
     @Autowired
     private SeasonService seasonService;
 
     //
 
-    public Season createSeasonDetail(@RequestParam String seasonYear) {
-        return seasonService.createSeasonDetail(seasonYear);
+    public Season createSeason(@RequestParam String seasonYear) {
+        return seasonService.createSeason(seasonYear);
     }
 
-    @PutMapping("/update/season/details")
-    public Season updateSeasonDetailBySeasonYear (@RequestParam String seasonYear, String tournamentId) {
-        return seasonService.updateSeasonBySeasonYear(seasonYear, tournamentId);
-    }
+//    @PutMapping("/update/season/details")
+//    public Season updateSeasonDetailBySeasonYear (@RequestParam String seasonYear, String tournamentId) {
+//        return seasonService.updateSeasonBySeasonYear(seasonYear, tournamentId);
+//    }
 
     @GetMapping("/season/detail/by/tournament")
     public Season getSeasonDetailByTournamentId (@RequestParam String tournamentId, String seasonYear) {

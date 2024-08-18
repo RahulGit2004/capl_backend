@@ -1,6 +1,7 @@
 package caplcom.codingAge.capl.Controllers;
 
 import caplcom.codingAge.capl.Models.Match;
+import caplcom.codingAge.capl.Models.request.CreateRequests.MatchRequest;
 import caplcom.codingAge.capl.Models.request.UpdateRequests.UpdateMatchRequest;
 import caplcom.codingAge.capl.Services.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,10 @@ public class MatchController {
     @Autowired
     private MatchService matchService;
 
-//    @PostMapping("/create/match")
-//    public Match createMatch(@RequestBody MatchRequest matchRequest){
-//        return matchService.createMatch(matchRequest);
-//    }
+    @PostMapping("/create/match")
+    public Match createMatch(@RequestBody MatchRequest matchRequest){
+        return matchService.createMatch(matchRequest);
+    }
     @PutMapping("/edit/matchDetail")
     public Match editMatchDetails(@RequestBody UpdateMatchRequest updateMatchRequest){
         return matchService.editMatchDetails(updateMatchRequest);

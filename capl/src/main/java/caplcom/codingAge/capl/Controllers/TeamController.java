@@ -46,7 +46,7 @@ public class TeamController {
         return teamService.addPlayerInTeam(teamId, playerId);
     }
     @PutMapping("/remove/player")
-    public boolean removePlayerFromTeam(@RequestParam String teamId, Stringff playerId){
+    public boolean removePlayerFromTeam(@RequestParam String teamId, String playerId){
      return teamService.removePlayerFromTeam(teamId, playerId);
     }
     @GetMapping("/listOf/Teams")

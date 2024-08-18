@@ -14,20 +14,17 @@ public class SeasonServiceImpl implements SeasonService {
     @Autowired
     private SeasonRepository seasonRepository;
 
-    @Autowired
-    private TournamentService tournamentService;
 
-    @Override
-    public Season updateSeasonBySeasonYear(String seasonYear, String tournamentId) {
-        Season season = seasonRepository.findBySeasonYear(seasonYear);
-        Tournament tournament =  tournamentService.findByTournamentId(tournamentId);
-        if (tournament != null && season != null)  {
-            } else {
-                return new Season();
-        }
-
-        return new Season();
-    }
+//    @Override
+//    public Season updateSeasonBySeasonYear(String seasonYear, String tournamentId) {
+//        Season season = seasonRepository.findBySeasonYear(seasonYear);
+//        Tournament tournament =  tournamentService.findByTournamentId(tournamentId);
+//        if (tournament != null && season != null)  {
+//            return new Season();
+//            } else {
+//                return new Season();
+//        }
+//    }
 
 
     @Override
@@ -37,7 +34,7 @@ public class SeasonServiceImpl implements SeasonService {
     }
 
     @Override
-    public Season createSeasonDetail(String seasonYear) {
+    public Season createSeason(String seasonYear) {
         Season season = new Season();
         season.setSeasonYear(seasonYear);
         return seasonRepository.save(season);
