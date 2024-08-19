@@ -25,12 +25,10 @@ public class ScoreBoard {
     private int totalRuns;
     private double overs;
     private int noOfWickets;
-<<<<<<< HEAD
+
     private List <Stats> statsList;
     private List <Extras> extrasList;
-=======
-    private List <Stats> statsList = new ArrayList<>();
-     // we have need list of Extras here...
-    Extras extras;
->>>>>>> 6e51f5924794f7818ff7a5585a12c680d8fb2538
+
+
+
 }
