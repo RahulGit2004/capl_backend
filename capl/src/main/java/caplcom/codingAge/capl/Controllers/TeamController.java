@@ -23,12 +23,12 @@ public class TeamController {
 //    }
 
     @GetMapping("/getTeamById")
-    public Team getTeamById(@RequestParam Integer teamId){
+    public Team getTeamById(@RequestParam String teamId){
         return teamService.getTeamById(teamId);
     }
 
     @GetMapping("/getTeamBy/creatorId")
-    public Team getTeamByCreatorId(@RequestParam Integer creatorId){
+    public Team getTeamByCreatorId(@RequestParam String creatorId){
         return teamService.getTeamByCreatorId(creatorId);
     }
 
@@ -37,16 +37,16 @@ public class TeamController {
         return teamService.updateTeamDetails(updateTeamRequest);
     }
     @GetMapping("/list/ofPlayers")
-    public List<Player> getListOfPlayers(@RequestParam Integer teamId){
+    public List<Player> getListOfPlayers(@RequestParam String teamId){
         return teamService.getListOfPlayers(teamId);
     }
 
     @PutMapping("/add/player")
-    public boolean addPlayerInTeam(@RequestParam Integer teamId, Integer playerId){
+    public boolean addPlayerInTeam(@RequestParam String teamId, String playerId){
         return teamService.addPlayerInTeam(teamId, playerId);
     }
     @PutMapping("/remove/player")
-    public boolean removePlayerFromTeam(@RequestParam Integer teamId, Integer playerId){
+    public boolean removePlayerFromTeam(@RequestParam String teamId, String playerId){
      return teamService.removePlayerFromTeam(teamId, playerId);
     }
     @GetMapping("/listOf/Teams")

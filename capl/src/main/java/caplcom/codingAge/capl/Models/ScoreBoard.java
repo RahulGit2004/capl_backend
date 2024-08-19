@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection ="scoreboard")
@@ -24,6 +25,12 @@ public class ScoreBoard {
     private int totalRuns;
     private double overs;
     private int noOfWickets;
+<<<<<<< HEAD
     private List <Stats> statsList;
     private List <Extras> extrasList;
+=======
+    private List <Stats> statsList = new ArrayList<>();
+     // we have need list of Extras here...
+    Extras extras;
+>>>>>>> 6e51f5924794f7818ff7a5585a12c680d8fb2538
 }

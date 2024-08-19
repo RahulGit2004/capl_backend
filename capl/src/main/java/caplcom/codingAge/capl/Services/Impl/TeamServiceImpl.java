@@ -3,6 +3,7 @@ package caplcom.codingAge.capl.Services.Impl;
 
 import caplcom.codingAge.capl.Models.Player;
 import caplcom.codingAge.capl.Models.Team;
+import caplcom.codingAge.capl.Models.request.CreateRequests.TeamRequest;
 import caplcom.codingAge.capl.Models.request.UpdateRequests.UpdateTeamRequest;
 import caplcom.codingAge.capl.Repositories.TeamRepository;
 import caplcom.codingAge.capl.Services.PlayerService;
@@ -24,24 +25,24 @@ public class TeamServiceImpl implements TeamService {
     private PlayerService playerService;
     @Autowired
     private UserService userService;
-//    public Team createTeam(TeamRequest teamRequest) {
-//        if(userService.getUserByUserId(teamRequest.getTeamCreatorId()) != null){
-//            Team team = new Team();
-//            team.setTeamCreatorId(teamRequest.getTeamCreatorId());
-//            team.setTeamName(teamRequest.getTeamName());
-//            team.setTeamNickName(teamRequest.getTeamNickName());
-//            return teamRepository.save(team);
-//        }
-//        return null;
-//    }
-
-    @Override
-    public Team getTeamById(Integer teamId) {
-        return teamRepository.findById(teamId).orElse(null);
+    public Team createTeam(TeamRequest teamRequest) {
+        if(userService.getUserByUserId(teamRequest.getTeamCreatorId()) != null){
+            Team team = new Team();
+            team.setTeamCreatorId(teamRequest.getTeamCreatorId());
+            team.setTeamName(teamRequest.getTeamName());
+            team.setTeamNickName(teamRequest.getTeamNickName());
+            return teamRepository.save(team);
+        }
+        return null;
     }
 
     @Override
-    public Team getTeamByCreatorId(Integer creatorId) {
+    public Team getTeamById(String teamId) {
+        return teamRepository.findByTeamId(teamId);
+    }
+
+    @Override
+    public Team getTeamByCreatorId(String creatorId) {
         return teamRepository.findByTeamCreatorId(creatorId);
     }
     @Override
@@ -60,7 +61,7 @@ public class TeamServiceImpl implements TeamService {
         return null;
     }
     @Override
-    public List<Player> getListOfPlayers(Integer teamId) {
+    public List<Player> getListOfPlayers(String teamId) {
         if(getTeamById(teamId) != null){
             return getTeamById(teamId).getPlayerList();
         }
@@ -68,7 +69,7 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
-    public boolean addPlayerInTeam(Integer teamId, Integer playerId) {
+    public boolean addPlayerInTeam(String teamId, String playerId) {
         Team team = getTeamById(teamId);
         if(team != null){
             Player player = playerService.getPlayerById(playerId);
@@ -85,11 +86,11 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
-    public boolean removePlayerFromTeam(Integer teamId, Integer playerId) {
+    public boolean removePlayerFromTeam(String teamId, String playerId) {
         Team team = getTeamById(teamId);
         if(team != null){
             for(Player player : getListOfPlayers(teamId)){
-                if(player.getId().equals(playerId)){
+                if(player.getPlayerId().equals(playerId)){
                    getListOfPlayers(teamId).remove(player);
                    teamRepository.save(team);
                     return true;
@@ -104,4 +105,8 @@ public class TeamServiceImpl implements TeamService {
         return teamRepository.findAll();
     }
 
+    @Override
+    public Team saveUpdates(Team team) {
+        return teamRepository.save(team);
+    }
 }

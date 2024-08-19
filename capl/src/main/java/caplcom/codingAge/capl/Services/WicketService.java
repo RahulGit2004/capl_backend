@@ -8,9 +8,9 @@ import java.util.List;
 public interface WicketService {
     Wicket createWicket(WicketRequest wicketRequest);
 
-    Wicket getWicketById(Integer wicketId);
+    Wicket getWicketById(String wicketId);
 
-    List<Wicket> getWicketsByBowlerId(Integer bowlerId);
+    List<Wicket> getWicketsByBowlerId(String bowlerId);
 
-    List<Wicket> getWicketsByBatterId(Integer batterId);
+    List<Wicket> getWicketsByBatterId(String batterId);
 }

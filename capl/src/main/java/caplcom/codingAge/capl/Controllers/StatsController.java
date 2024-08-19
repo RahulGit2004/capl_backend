@@ -12,21 +12,26 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/stats")
 public class StatsController {
+
     @Autowired
+
     private StatsService statsService;
 
     @PostMapping("/createStas")
     public Stats createStats(@RequestBody StatsRequest statsRequest){
         return statsService.createStats(statsRequest);
     }
+
     @GetMapping("/getStatsById")
-    public Stats getStatsById(@RequestParam Integer statsId){
-    return statsService.getStatsById(statsId);
+    public Stats getStatsById(@RequestParam String statsId){
+        return statsService.getStatsById(statsId);
     }
+
     @PutMapping("/updateStats")
     public Stats updateStats(@RequestBody UpdateStats updateStats){
         return statsService.updateStats(updateStats);
     }
+
     @GetMapping("/getAllStats")
     public List<Stats> getAll(){
         return statsService.getAll();

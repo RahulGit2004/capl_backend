@@ -13,33 +13,33 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class StatsSeviceImpl implements StatsService {
+public class StatsServiceImpl implements StatsService {
     @Autowired
     private StatsRepository statsRepository;
     @Override
     public Stats createStats(StatsRequest statsRequest) {
-        // need the reason behind this..
-    Stats stats = statsRepository.findByPlayerId(statsRequest.getPlayerId());
-     if (stats != null){
-         stats.setMatchId(statsRequest.getMatchId());
-         stats.setTeamId(statsRequest.getTeamId());
-         stats.setPlayerId(statsRequest.getPlayerId());
-         stats.setTotalRuns(statsRequest.getTotalRuns());
-         stats.setStrikeRate(statsRequest.getStrikeRate());
-         stats.setEconomyRate(statsRequest.getEconomyRate());
-         stats.setTotalBalls(statsRequest.getTotalBalls());
-         stats.setTotalFours(statsRequest.getTotalFours());
-         stats.setTotalSix(statsRequest.getTotalSix());
+        // need the reason behind this...
+        Stats stats = statsRepository.findByPlayerId(statsRequest.getPlayerId());
+        if (stats != null){
+            stats.setMatchId(statsRequest.getMatchId());
+            stats.setTeamId(statsRequest.getTeamId());
+            stats.setPlayerId(statsRequest.getPlayerId());
+            stats.setTotalRuns(statsRequest.getTotalRuns());
+            stats.setStrikeRate(statsRequest.getStrikeRate());
+            stats.setEconomyRate(statsRequest.getEconomyRate());
+            stats.setTotalBalls(statsRequest.getTotalBalls());
+            stats.setTotalFours(statsRequest.getTotalFours());
+            stats.setTotalSix(statsRequest.getTotalSix());
 
-         return statsRepository.save(stats);
-     }
-     else{
-         return new Stats();
-     }
+            return statsRepository.save(stats);
+        }
+        else{
+            return new Stats();
+        }
     }
 
     @Override
-    public Stats getStatsById(Integer statsId) {
+    public Stats getStatsById(String statsId) {
 //        return statsRepository.findByStatsId(statsId).orElse(null);
         Stats stats = statsRepository.findByStatsId(statsId);
         return Objects.requireNonNullElseGet(stats, Stats::new);
@@ -48,8 +48,7 @@ public class StatsSeviceImpl implements StatsService {
 
     @Override
     public Stats updateStats(UpdateStats updateStats) {
-        // id is not in Stats model..
-        Optional<Stats> stats=statsRepository.findById(updateStats.getId());
+        Optional<Stats> stats=statsRepository.findById(updateStats.getStatsId());
         if (stats.isPresent()){
             Stats stats1 = new Stats();
             stats1.setMatchId(updateStats.getMatchId());
@@ -68,7 +67,7 @@ public class StatsSeviceImpl implements StatsService {
 
     @Override
     public List<Stats> getAll() {
-            return statsRepository.findAll();
+        return statsRepository.findAll();
     }
 
 }

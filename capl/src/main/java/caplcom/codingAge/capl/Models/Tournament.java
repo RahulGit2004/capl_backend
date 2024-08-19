@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,18 +19,18 @@ import java.util.List;
 @Document(collection ="Tournament")
 public class Tournament {
     @Id
-    private Integer tournamentId;
+    private String tournamentId;
     private String tournamentName;
-    private Integer seasonYear;
-    private Integer creatorId;
-    private Integer highestScoreBatterId;
-    private Integer highestScoreBowlerId;
-    private Integer winnerTeam;
+    private String seasonYear;
+    private String creatorId;
+    private String highestScoreBatterId;
+    private String highestScoreBowlerId;
+    private String winnerTeam;
     private Date tournamentStartDate;
     private Date tournamentEndDate;
     private String stadiumName;
     private String stadiumAddress;
 
-
-    private List<Team> teamList;
+// it has to be List<TeamStats>
+    private List<Team> teamList = new ArrayList<>();
 }

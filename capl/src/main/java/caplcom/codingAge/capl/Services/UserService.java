@@ -8,10 +8,8 @@ import java.util.List;
 
 public interface UserService {
     User signUp(UserRequest userRequest);
-
-    User signIn(String userPhone, String userPassword);
-
+    boolean signIn(String userPhone, String userPassword);
     List<User> getListOfUsers();
-
     User getUserByUserId(String userId);
+    User saveUpdates(User user);
 }

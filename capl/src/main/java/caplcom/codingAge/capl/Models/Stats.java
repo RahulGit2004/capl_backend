@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -18,17 +19,19 @@ import java.util.List;
 
 public class Stats {
     @Id
-    private Integer statsId;
+    private String statsId;
 
-    private Integer matchId;
-    private Integer teamId;
-    private Integer playerId;
+    private String matchId;
+    private String teamId;
+    private String playerId;
     private int totalRuns;
     private double strikeRate;
     private double economyRate;
     private double totalBalls;
     private int totalFours;
     private int totalSix;
-    private List<Wicket> wickets;
+    // 18 Aug. Discuss
+
+    private List<Wicket> wickets = new ArrayList<>();
 
 }

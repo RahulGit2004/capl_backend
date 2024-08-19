@@ -11,10 +11,10 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UpdateStats {
 
-    private Integer id;
-    private Integer matchId;
-    private Integer teamId;
-    private Integer playerId;
+    private String statsId;
+    private String matchId;
+    private String teamId;
+    private String playerId;
     private int totalRuns;
     private double strikeRate;
     private double economyRate;

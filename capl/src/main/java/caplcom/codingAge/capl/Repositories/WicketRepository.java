@@ -7,11 +7,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface WicketRepository extends MongoRepository<Wicket, Integer> {
-    Wicket findByWicketId(Integer wicketId);
+public interface WicketRepository extends MongoRepository<Wicket, String> {
+    Wicket findByWicketId(String wicketId);
 
-    List<Wicket> findByBowlerId(Integer bowlerId);
+    List<Wicket> findByBowlerId(String bowlerId);
 
-    List<Wicket> findByBatterId(Integer batterId);
-    Wicket findByBatterIdAndTeamId(Integer batterId, Integer teamId);
+    List<Wicket> findByBatterId(String batterId);
+    Wicket findByBatterIdAndTeamId(String batterId, String teamId);
 }

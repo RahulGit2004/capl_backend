@@ -21,23 +21,23 @@ public class TournamentController {
     }
 
     @GetMapping("/findByTournamentId")
-    public Tournament findByTournamentId(@RequestParam Integer tournamentId){
+    public Tournament findByTournamentId(@RequestParam String tournamentId){
         return tournamentService.findByTournamentId(tournamentId);
     }
 
     @GetMapping("/findBySeasonYear")
-    public Tournament findBySeasonYear(@RequestParam Integer tournamentSeasonYear){
+    public Tournament findBySeasonYear(@RequestParam String tournamentSeasonYear){
         return tournamentService.findBySeasonYear(tournamentSeasonYear);
     }
 
     @PutMapping("/addTeamsInTournament")
-    public Tournament addTeamsInTournament(@RequestParam Integer tournamentId , Integer teamId){
+    public Tournament addTeamsInTournament(@RequestParam String tournamentId , String teamId){
         return tournamentService.addTeamsInTournament(tournamentId , teamId);
     }
 
     @PutMapping("/removeTeamFromTournament")
-    public boolean removeTeamFromTournament(@RequestParam Integer tournamentId , Integer teamId){
-       return tournamentService.removeTeamFromTournament(tournamentId , teamId);
+    public boolean removeTeamFromTournament(@RequestParam String tournamentId , String teamId){
+        return tournamentService.removeTeamFromTournament(tournamentId , teamId);
     }
 
 //    public List<MatchResult> getAllMatchesByTournamentId(@RequestParam Integer tournamentId){

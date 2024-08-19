@@ -4,8 +4,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection ="Teams")
@@ -14,15 +16,16 @@ import java.util.List;
 @NoArgsConstructor
 public class Team {
     @Id
-    private Integer id;
-    private Integer teamCreatorId;
+    private String teamId;
+    private String teamCreatorId;
     private String teamName;
     private String teamNickName;
     private String teamProfilePhotoUrl;
-    private Integer teamCaptainId;
+    private String teamCaptainId;
     private String teamCoachName;
-    private List<Player> playerList;
-    private List<Match> matchList;
+    private List<Player> playerList = new ArrayList<>();
+    private List<Match> matchList = new ArrayList<>();
+    // here we need List<TeamStats>
 
 
 }

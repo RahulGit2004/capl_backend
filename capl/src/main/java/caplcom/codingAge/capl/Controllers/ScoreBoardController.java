@@ -13,6 +13,7 @@ import java.util.List;
 @RequestMapping("/capl/scoreboard")
 @CrossOrigin(origins = "*")
 public class ScoreBoardController {
+    // need api to calculate extras of each team...
 
     @Autowired
     private ScoreBoardService scoreBoardService;

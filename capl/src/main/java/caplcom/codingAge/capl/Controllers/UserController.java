@@ -22,14 +22,14 @@ public class UserController {
         return userService.signUp(userRequest);
     }
 
-    @GetMapping("/signIn")
-    public User signIn(@RequestParam String userPhone, String userPassword){
+    @PostMapping("/signIn")
+    public boolean signIn(@RequestParam String userPhone, String userPassword){
         return userService.signIn(userPhone,userPassword);
     }
-//    @GetMapping("/getUser/ById")
-//    public User getUserByUserId(@RequestParam Integer userId){
-//        return userService.getUserByUserId(userId);
-//    }
+    @GetMapping("/getUser/ById")
+    public User getUserByUserId(@RequestParam String userId){
+        return userService.getUserByUserId(userId);
+    }
     @GetMapping("/listOf/User")
     public List<User> getListOfUsers(){
         return userService.getListOfUsers();

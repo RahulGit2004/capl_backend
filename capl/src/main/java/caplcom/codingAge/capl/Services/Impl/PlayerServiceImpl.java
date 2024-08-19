@@ -28,11 +28,16 @@ public class PlayerServiceImpl implements PlayerService {
         return playerRepository.save(player);
     }
     @Override
-    public Player getPlayerById(Integer playerId) {
-        return playerRepository.findById(playerId).orElse(null);
+    public Player getPlayerById(String playerId) {
+        return playerRepository.findByPlayerId(playerId);
     }
     @Override
     public List<Player> getListOfPlayer() {
         return playerRepository.findAll();
+    }
+
+    @Override
+    public Player saveUpdates(Player player) {
+        return playerRepository.save(player);
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PlayerService {
     Player createPlayer(PlayerRequest playerRequest);
-    Player getPlayerById(Integer playerId);
+    Player getPlayerById(String playerId);
     List<Player> getListOfPlayer();
-
+    Player saveUpdates(Player player);
 }

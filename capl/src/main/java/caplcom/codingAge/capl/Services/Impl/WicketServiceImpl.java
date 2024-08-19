@@ -36,7 +36,7 @@ public class WicketServiceImpl implements WicketService {
     }
 
     @Override
-    public Wicket getWicketById(Integer wicketId) {
+    public Wicket getWicketById(String wicketId) {
         Wicket wicket = wicketRepository.findByWicketId(wicketId);
         if(wicket != null) {
             return wicket;
@@ -45,7 +45,7 @@ public class WicketServiceImpl implements WicketService {
     }
 
     @Override
-    public List<Wicket> getWicketsByBowlerId(Integer bowlerId) {
+    public List<Wicket> getWicketsByBowlerId(String bowlerId) {
         List<Wicket> wickets = wicketRepository.findByBowlerId(bowlerId);
         if (wickets.isEmpty()) {
             return Collections.emptyList();
@@ -54,7 +54,7 @@ public class WicketServiceImpl implements WicketService {
     }
 
     @Override
-    public List<Wicket> getWicketsByBatterId(Integer batterId) {
+    public List<Wicket> getWicketsByBatterId(String batterId) {
         List<Wicket> wickets = wicketRepository.findByBatterId(batterId);
         if (wickets.isEmpty()) {
             return Collections.emptyList();

@@ -10,17 +10,18 @@ import java.util.List;
 public interface TeamService {
 //    Team createTeam(TeamRequest teamRequest);
 
-    Team getTeamById(Integer teamId);
+    Team getTeamById(String teamId);
 
-    Team getTeamByCreatorId(Integer creatorId);
+    Team getTeamByCreatorId(String creatorId);
 
     Team updateTeamDetails(UpdateTeamRequest updateTeamRequest);
 
-    List<Player> getListOfPlayers(Integer teamId);
+    List<Player> getListOfPlayers(String teamId);
 
-    boolean addPlayerInTeam(Integer teamId, Integer playerId);
+    boolean addPlayerInTeam(String teamId, String playerId);
 
     List<Team> getListOfTeam();
 
-    boolean removePlayerFromTeam(Integer teamId, Integer playerId);
+    boolean removePlayerFromTeam(String teamId, String playerId);
+    Team saveUpdates(Team team);
 }
