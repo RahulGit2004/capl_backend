@@ -44,12 +44,12 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public int getAllFoursByPlayerId(String playerId) {
         Player player=getPlayerById(playerId);
-        return player.getAllFours();
+        return player.getTotalFours();
     }
 
     @Override
     public int getAllSixByPlayerId(String playerId) {
         Player player=getPlayerById(playerId);
-        return player.getAllSix();
+        return player.getTotalSixes();
     }
 }

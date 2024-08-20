@@ -17,6 +17,7 @@ public class ScoreBoard {
 
     @Id
     private String id;
+    private String matchId;
     private String firstTeamId;
     private String secondTeamId;
     private String strikerId;
