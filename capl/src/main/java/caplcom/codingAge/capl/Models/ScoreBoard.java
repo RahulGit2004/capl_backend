@@ -26,8 +26,8 @@ public class ScoreBoard {
     private double overs;
     private int noOfWickets;
 
-    private List <Stats> statsList;
-    private List <Extras> extrasList;
+    private List <Stats> statsList=new ArrayList<>();
+    private List <Extras> extrasList=new ArrayList<>();
 
 
 

@@ -11,4 +11,6 @@ public interface PlayerService {
     Player getPlayerById(String playerId);
     List<Player> getListOfPlayer();
     Player saveUpdates(Player player);
+    int getAllFoursByPlayerId(String playerId);
+    int getAllSixByPlayerId(String playerId);
 }

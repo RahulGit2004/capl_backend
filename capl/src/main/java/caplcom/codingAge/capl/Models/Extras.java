@@ -16,6 +16,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Extras {
     @Id
     private String id;
+    private String matchId;
     private String teamId;
     private String wideRun;
     private String legByRun;

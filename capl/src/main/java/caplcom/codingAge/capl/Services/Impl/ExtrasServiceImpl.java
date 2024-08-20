@@ -17,6 +17,8 @@ public class ExtrasServiceImpl implements ExtrasService {
 
     @Autowired
     ExtrasRepository extrasRepository;
+    @Autowired
+    ScoreBoardServiceImpl scoreBoardService;
 
     @Override
     public Extras createExtras(ExtrasRequest extrasRequest) {
