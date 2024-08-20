@@ -24,14 +24,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User signIn(String userPhone, String userPassword) {
+    public boolean signIn(String userPhone, String userPassword) {
         User user = userRepository.findByUserPhone(userPhone);
         if(user != null){
-            if(user.getUserPassword().equals(userPassword)){
-                return user;
-            }
+            return user.getUserPassword().equals(userPassword);
         }
-        return null;
+        return false;
     }
 
     @Override

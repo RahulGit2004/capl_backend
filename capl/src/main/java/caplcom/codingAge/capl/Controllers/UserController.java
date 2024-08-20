@@ -22,8 +22,8 @@ public class UserController {
         return userService.signUp(userRequest);
     }
 
-    @GetMapping("/signIn")
-    public User signIn(@RequestParam String userPhone, String userPassword){
+    @PostMapping("/signIn")
+    public boolean signIn(@RequestParam String userPhone, String userPassword){
         return userService.signIn(userPhone,userPassword);
     }
     @GetMapping("/getUser/ById")

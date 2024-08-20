@@ -13,7 +13,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 public class Player {
     @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private String playerId;
     private String playerPhotoUrl;
     private String playerName;

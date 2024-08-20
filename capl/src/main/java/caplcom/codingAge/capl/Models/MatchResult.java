@@ -18,7 +18,6 @@ import java.util.Date;
 @Document(collection ="MatchResult")
 public class MatchResult {
     @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private String id;
     private String matchId;
     private String tournamentId;
