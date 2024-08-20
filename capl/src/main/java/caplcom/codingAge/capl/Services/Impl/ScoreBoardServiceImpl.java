@@ -48,18 +48,15 @@ public class ScoreBoardServiceImpl implements ScoreBoardService {
 
     @Override
     public ScoreBoard editScoreBoard(UpdateScoreBoardRequest updateScoreBoardRequest) {
-        ScoreBoard scoreBoard = getScoreBoardById(updateScoreBoardRequest.getScoreboardId());
+
+        ScoreBoard scoreBoard =scoreBoardRepository.findById(updateScoreBoardRequest.getScoreboardId()).get();
         if (scoreBoard != null){
-            if (scoreBoard.getFirstTeamId().equals(updateScoreBoardRequest.getFirstTeamId())){
-                // what below statement do???
-                scoreBoard.getSecondTeamId().equals(updateScoreBoardRequest.getSecondTeamId());
                 scoreBoard.setStrikerId(updateScoreBoardRequest.getStrikerId());
                 scoreBoard.setNonStrikerId(updateScoreBoardRequest.getNonStrikerId());
                 scoreBoard.setBowlerId(updateScoreBoardRequest.getBowlerId());
                 scoreBoard.setTotalRuns(updateScoreBoardRequest.getTotalRuns());
                 scoreBoard.setNoOfWickets(updateScoreBoardRequest.getNoOfWickets());
                 return scoreBoardRepository.save(scoreBoard);
-            }
         }
         return null;
     }
