@@ -40,4 +40,16 @@ public class PlayerServiceImpl implements PlayerService {
     public Player saveUpdates(Player player) {
         return playerRepository.save(player);
     }
+
+    @Override
+    public int getAllFoursByPlayerId(String playerId) {
+        Player player=getPlayerById(playerId);
+        return player.getTotalFours();
+    }
+
+    @Override
+    public int getAllSixByPlayerId(String playerId) {
+        Player player=getPlayerById(playerId);
+        return player.getTotalSixes();
+    }
 }
