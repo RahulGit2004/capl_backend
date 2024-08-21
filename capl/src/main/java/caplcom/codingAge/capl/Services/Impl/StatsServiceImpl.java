@@ -63,7 +63,7 @@ public class StatsServiceImpl implements StatsService {
             stats1.setTotalBalls(updateStats.getTotalBalls());
             stats1.setTotalFours(updateStats.getTotalFours());
             stats1.setTotalSix(updateStats.getTotalSix());
-//            stats1.setWickets(updateStats.getWickets());
+            return statsRepository.save(stats1);
         }
         return new Stats();
     }
