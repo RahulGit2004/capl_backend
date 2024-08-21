@@ -29,4 +29,12 @@ public class PlayerController {
     public List<Player> getListOfPlayer(){
         return playerService.getListOfPlayer();
     }
+    @GetMapping("/get/economy/Rate")
+    public String getEconomyRate(@RequestParam String playerId){
+        return  playerService.getEconomyRate(playerId);
+    }
+    @GetMapping("/get/strike/Rate")
+    public String getStikeRate(@RequestParam String playerId){
+        return playerService.getStikeRate(playerId);
+    }
 }

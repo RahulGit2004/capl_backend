@@ -40,4 +40,30 @@ public class PlayerServiceImpl implements PlayerService {
     public Player saveUpdates(Player player) {
         return playerRepository.save(player);
     }
+
+    @Override
+    public String getEconomyRate(String playerId) {
+        Player player = playerRepository.findByPlayerId(playerId);
+        if(player != null){
+            int totalBalls = Integer.parseInt(player.getTotalBalls());
+            double totalOvers = totalBalls / 6.0;
+            int totalRuns = Integer.parseInt(player.getTotalRuns());
+            double economyRate = totalRuns / totalOvers;
+            return  Double.toString(economyRate);
+        }
+        return null;
+    }
+
+    @Override
+    public String getStikeRate(String playerId) {
+        Player player = playerRepository.findByPlayerId(playerId);
+        if (player != null){
+            int totalRuns = Integer.parseInt(player.getTotalRuns());
+            int totalBalls = Integer.parseInt(player.getTotalBalls());
+            double strikeRate = (double) totalRuns / totalBalls *100;
+            return  Double.toString(strikeRate);
+        }
+        return null;
+    }
 }
+

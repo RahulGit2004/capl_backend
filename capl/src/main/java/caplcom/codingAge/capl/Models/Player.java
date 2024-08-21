@@ -29,6 +29,10 @@ public class Player {
     private String totalFullCentury;
     private String playerAverage;
     private String totalMatches;
+    private String totalBalls;
     private String totalRuns;
+
+
+
     // List of stats and list of wicket
 }
