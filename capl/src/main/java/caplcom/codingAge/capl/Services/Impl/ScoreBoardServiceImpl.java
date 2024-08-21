@@ -1,5 +1,6 @@
 package caplcom.codingAge.capl.Services.Impl;
 
+import caplcom.codingAge.capl.Models.Extras;
 import caplcom.codingAge.capl.Models.ScoreBoard;
 import caplcom.codingAge.capl.Models.request.CreateRequests.ScoreBoardRequest;
 import caplcom.codingAge.capl.Models.request.UpdateRequests.UpdateScoreBoardRequest;
@@ -64,5 +65,16 @@ public class ScoreBoardServiceImpl implements ScoreBoardService {
     @Override
     public List<ScoreBoard> getListOfScoreBoard() {
         return scoreBoardRepository.findAll();
+    }
+
+    @Override
+    public ScoreBoard addExtrasByMatchId(Extras extras) {
+        ScoreBoard scoreBoard=scoreBoardRepository.findByMatchId(extras.getMatchId());
+        if(scoreBoard!=null)
+        {
+            scoreBoard.getExtrasList().add(extras);
+            scoreBoardRepository.save(scoreBoard);
+        }
+        return null;
     }
 }

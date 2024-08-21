@@ -42,6 +42,7 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
+<<<<<<< HEAD
     public String getEconomyRate(String playerId) {
         Player player = playerRepository.findByPlayerId(playerId);
         if(player != null){
@@ -64,6 +65,17 @@ public class PlayerServiceImpl implements PlayerService {
             return  Double.toString(strikeRate);
         }
         return null;
+=======
+    public int getAllFoursByPlayerId(String playerId) {
+        Player player=getPlayerById(playerId);
+        return player.getTotalFours();
+    }
+
+    @Override
+    public int getAllSixByPlayerId(String playerId) {
+        Player player=getPlayerById(playerId);
+        return player.getTotalSixes();
+>>>>>>> fb51bb03294b94678d54e26bc3b1d5da3d3bb17e
     }
 }
 

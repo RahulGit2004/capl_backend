@@ -1,5 +1,6 @@
 package caplcom.codingAge.capl.Services;
 
+import caplcom.codingAge.capl.Models.Extras;
 import caplcom.codingAge.capl.Models.ScoreBoard;
 import caplcom.codingAge.capl.Models.request.CreateRequests.ScoreBoardRequest;
 import caplcom.codingAge.capl.Models.request.UpdateRequests.UpdateScoreBoardRequest;
@@ -17,4 +18,5 @@ public interface ScoreBoardService {
     ScoreBoard editScoreBoard(UpdateScoreBoardRequest updateScoreBoardRequest);
 
     List<ScoreBoard> getListOfScoreBoard();
+    ScoreBoard addExtrasByMatchId(Extras extras);
 }
