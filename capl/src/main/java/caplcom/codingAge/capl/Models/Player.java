@@ -31,13 +31,7 @@ public class Player {
     private String totalMatches;
     private String totalBalls;
     private String totalRuns;
-<<<<<<< HEAD
-
-
-
-=======
     private int totalFours;
     private int totalSixes;
->>>>>>> fb51bb03294b94678d54e26bc3b1d5da3d3bb17e
     // List of stats and list of wicket
 }

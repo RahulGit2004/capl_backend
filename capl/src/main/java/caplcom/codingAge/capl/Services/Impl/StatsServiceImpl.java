@@ -1,9 +1,11 @@
 package caplcom.codingAge.capl.Services.Impl;
 
+import caplcom.codingAge.capl.Models.Player;
 import caplcom.codingAge.capl.Models.Stats;
 import caplcom.codingAge.capl.Models.request.CreateRequests.StatsRequest;
 import caplcom.codingAge.capl.Models.request.UpdateRequests.UpdateStats;
 import caplcom.codingAge.capl.Repositories.StatsRepository;
+import caplcom.codingAge.capl.Services.PlayerService;
 import caplcom.codingAge.capl.Services.StatsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,11 +18,14 @@ import java.util.Optional;
 public class StatsServiceImpl implements StatsService {
     @Autowired
     private StatsRepository statsRepository;
+
+    @Autowired
+    private PlayerService playerService;
     @Override
     public Stats createStats(StatsRequest statsRequest) {
-        // need the reason behind this...
-        Stats stats = statsRepository.findByPlayerId(statsRequest.getPlayerId());
-        if (stats != null){
+        Player player = playerService.getPlayerById(statsRequest.getPlayerId());
+        if (player != null){
+            Stats stats = new Stats();
             stats.setMatchId(statsRequest.getMatchId());
             stats.setTeamId(statsRequest.getTeamId());
             stats.setPlayerId(statsRequest.getPlayerId());
@@ -30,7 +35,6 @@ public class StatsServiceImpl implements StatsService {
             stats.setTotalBalls(statsRequest.getTotalBalls());
             stats.setTotalFours(statsRequest.getTotalFours());
             stats.setTotalSix(statsRequest.getTotalSix());
-
             return statsRepository.save(stats);
         }
         else{
@@ -40,7 +44,6 @@ public class StatsServiceImpl implements StatsService {
 
     @Override
     public Stats getStatsById(String statsId) {
-//        return statsRepository.findByStatsId(statsId).orElse(null);
         Stats stats = statsRepository.findByStatsId(statsId);
         return Objects.requireNonNullElseGet(stats, Stats::new);
 
