@@ -37,4 +37,9 @@ public class PlayerController {
     public String getStikeRate(@RequestParam String playerId){
         return playerService.getStikeRate(playerId);
     }
+
+    @PutMapping
+    public int addSixByPlayerId(String playerId){
+        return playerService.addSixByPlayerId(playerId);
+    }
 }

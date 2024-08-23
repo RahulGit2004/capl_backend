@@ -7,6 +7,7 @@ import caplcom.codingAge.capl.Services.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Array;
 import java.util.List;
 
 @RestController
@@ -53,5 +54,11 @@ public class TeamController {
     public List<Team> getListOfTeam(){
         return teamService.getListOfTeam();
     }
+
+    @GetMapping
+    public List<Player> getListPlayerByRuns(String teamId) {
+        return teamService.getListPlayerByRuns(teamId);
+    }
+
 
 }

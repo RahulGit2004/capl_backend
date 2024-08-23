@@ -15,6 +15,7 @@ public class PlayerServiceImpl implements PlayerService {
 
     @Autowired
     private PlayerRepository playerRepository;
+
     @Override
     public Player createPlayer(PlayerRequest playerRequest) {
         Player player = new Player();
@@ -75,5 +76,17 @@ public class PlayerServiceImpl implements PlayerService {
         Player player=getPlayerById(playerId);
         return player.getTotalSixes();
     }
-}
 
+    @Override
+    public int addSixByPlayerId(String playerId) {
+        Player player = getPlayerById(playerId);
+        int totalSixes = 0;
+        if (player != null){
+            totalSixes = player.getTotalSixes() + 1;
+            player.setTotalSixes(totalSixes);
+        }
+        return totalSixes;
+    }
+
+
+}

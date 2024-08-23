@@ -30,7 +30,7 @@ public class Player {
     private String playerAverage;
     private String totalMatches;
     private String totalBalls;
-    private String totalRuns;
+    private int totalRuns;
     private int totalFours;
     private int totalSixes;
     // List of stats and list of wicket
