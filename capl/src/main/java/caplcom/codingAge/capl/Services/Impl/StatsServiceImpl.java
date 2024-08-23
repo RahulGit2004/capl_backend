@@ -73,4 +73,14 @@ public class StatsServiceImpl implements StatsService {
         return statsRepository.findAll();
     }
 
+    @Override
+    public Stats getStatsByTeamId(String teamId) {
+        return statsRepository.findByTeamId(teamId);
+    }
+
+    @Override
+    public Stats saveStatsUpdate(Stats stats) {
+        return statsRepository.save(stats);
+    }
+
 }

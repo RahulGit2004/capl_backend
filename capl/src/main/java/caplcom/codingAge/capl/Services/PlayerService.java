@@ -17,5 +17,7 @@ public interface PlayerService {
     int getAllFoursByPlayerId(String playerId);
     int getAllSixByPlayerId(String playerId);
 
-    int addSixByPlayerId(String playerId);
+    Player getPlayerByPlayerPhone(String userPhone);
+
+    boolean addFourByPlayerId(String playerId);
 }

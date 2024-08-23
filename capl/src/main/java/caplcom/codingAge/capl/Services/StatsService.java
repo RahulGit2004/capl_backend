@@ -14,4 +14,8 @@ public interface StatsService {
     Stats updateStats(UpdateStats updateStats);
 
     List<Stats> getAll();
+
+    Stats getStatsByTeamId(String teamId);
+
+    Stats saveStatsUpdate(Stats stats);
 }
