@@ -17,24 +17,33 @@ public class PlayerController {
     private PlayerService playerService;
 
     @PostMapping("/create/player")
-    public Player createPlayer(@RequestBody PlayerRequest playerRequest){
+    public Player createPlayer(@RequestBody PlayerRequest playerRequest) {
         return playerService.createPlayer(playerRequest);
     }
+
     @GetMapping("/get/player")
-    public Player getPlayerById(@RequestParam String playerId){
+    public Player getPlayerById(@RequestParam String playerId) {
         return playerService.getPlayerById(playerId);
     }
 
     @GetMapping("listOf/Player")
-    public List<Player> getListOfPlayer(){
+    public List<Player> getListOfPlayer() {
         return playerService.getListOfPlayer();
     }
+
     @GetMapping("/get/economy/Rate")
-    public String getEconomyRate(@RequestParam String playerId){
-        return  playerService.getEconomyRate(playerId);
+    public String getEconomyRate(@RequestParam String playerId) {
+        return playerService.getEconomyRate(playerId);
     }
+
     @GetMapping("/get/strike/Rate")
-    public String getStikeRate(@RequestParam String playerId){
+    public String getStrikeRate(@RequestParam String playerId) {
         return playerService.getStikeRate(playerId);
     }
+
+    @PutMapping("/add/four/player")
+    public boolean addFourByPlayerId (@RequestParam String playerId) {
+        return playerService.addFourByPlayerId(playerId);
+    }
+
 }

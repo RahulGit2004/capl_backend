@@ -35,4 +35,5 @@ public class WicketController {
         return wicketService.getWicketsByBatterId(batterId);
     }
 
+
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class PlayerServiceImpl implements PlayerService {
@@ -74,6 +75,23 @@ public class PlayerServiceImpl implements PlayerService {
     public int getAllSixByPlayerId(String playerId) {
         Player player=getPlayerById(playerId);
         return player.getTotalSixes();
+    }
+
+    @Override
+    public Player getPlayerByPlayerPhone(String userPhone) {
+        Player player = playerRepository.findByPlayerPhone (userPhone);
+        return Objects.requireNonNullElseGet(player, Player::new);
+    }
+
+    @Override
+    public boolean addFourByPlayerId(String playerId) {
+        Player player =  playerRepository.findByPlayerId(playerId);
+        if (player != null) {
+            int totalFours = player.getTotalFours();
+            player.setTotalFours(totalFours + 1);
+            return true;
+        }
+        return false;
     }
 }
 

@@ -33,6 +33,10 @@ public class UserController {
     @GetMapping("/listOf/User")
     public List<User> getListOfUsers(){
         return userService.getListOfUsers();
+    }
 
+    @GetMapping("/get/user/id")
+    public String getUserIdByPhoneAndPassword(@RequestParam String userPhone, String userPassword) {
+        return userService.getUserIdByPhoneAndPassword(userPhone,userPassword);
     }
 }

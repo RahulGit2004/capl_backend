@@ -12,4 +12,6 @@ public interface UserService {
     List<User> getListOfUsers();
     User getUserByUserId(String userId);
     User saveUpdates(User user);
+
+    String getUserIdByPhoneAndPassword(String userPhone, String userPassword);
 }
