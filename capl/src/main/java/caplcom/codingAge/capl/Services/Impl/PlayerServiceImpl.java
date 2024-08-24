@@ -48,7 +48,7 @@ public class PlayerServiceImpl implements PlayerService {
         if(player != null){
             int totalBalls = Integer.parseInt(player.getTotalBalls());
             double totalOvers = totalBalls / 6.0;
-            int totalRuns = Integer.parseInt(player.getTotalRuns());
+            int totalRuns = player.getTotalRuns();
             double economyRate = totalRuns / totalOvers;
             return  Double.toString(economyRate);
         }
@@ -59,7 +59,7 @@ public class PlayerServiceImpl implements PlayerService {
     public String getStikeRate(String playerId) {
         Player player = playerRepository.findByPlayerId(playerId);
         if (player != null){
-            int totalRuns = Integer.parseInt(player.getTotalRuns());
+            int totalRuns = player.getTotalRuns();
             int totalBalls = Integer.parseInt(player.getTotalBalls());
             double strikeRate = (double) totalRuns / totalBalls *100;
             return  Double.toString(strikeRate);
@@ -93,5 +93,18 @@ public class PlayerServiceImpl implements PlayerService {
         }
         return false;
     }
+
+    @Override
+    public int addSixByPlayerId(String playerId) {
+        Player player = getPlayerById(playerId);
+        int totalSixes = 0;
+        if (player != null){
+            totalSixes = player.getTotalSixes() + 1;
+            player.setTotalSixes(totalSixes);
+        }
+        return totalSixes;
+    }
+
+
 }
 

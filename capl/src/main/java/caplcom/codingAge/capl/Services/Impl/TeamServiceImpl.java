@@ -110,19 +110,6 @@ public class TeamServiceImpl implements TeamService {
         return teamRepository.save(team);
     }
 
-    @Override
-    public List<Player> getListPlayerByRuns(String teamId) {
-        Team team = getTeamById(teamId);
-        List<Player> listPlayerByRuns = List.of();
-        if (team != null){
-            List<Player> playerList = team.getPlayerList();
-            for (Player player : playerList){
-                int p = player.getTotalRuns();
-                listPlayerByRuns.add(player);
-            }
-        }
-        return listPlayerByRuns;
-    }
 }
 
 

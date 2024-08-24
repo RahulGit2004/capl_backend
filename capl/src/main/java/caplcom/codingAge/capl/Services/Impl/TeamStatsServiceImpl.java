@@ -22,20 +22,22 @@ public class TeamStatsServiceImpl implements TeamStatsService {
     public TeamStats getTeamStatsByTeamId(String teamId) {
         return teamStatsRepo.findByTeamId(teamId);
     }
+
     @Override
-    public TeamStats createMatchTeamStats(TeamStatsRequest teamStatsRequest) {
-        TeamStats teamStats=new TeamStats();
-         teamStats.setTeamId(teamStatsRequest.getTeamId());
-         return teamStatsRepo.save(teamStats);
+    public TeamStats createTeamStats(TeamStatsRequest teamStatsRequest) {
+        TeamStats teamStats = new TeamStats();
+        teamStats.setTeamId(teamStatsRequest.getTeamId());
+        teamStats.setTournamentId(teamStatsRequest.getTournamentId());
+        return teamStatsRepo.save(teamStats);
     }
 
     @Override
     // same here
     public TeamStats editMatchTeamStats(String teamId) {
         // what are you trying to do here...
-        TeamStats teamStats=findByTeamId(teamId);
-        if (teamStats!=null){
-            if (teamId ==teamStats.getTeamId()){
+        TeamStats teamStats = findByTeamId(teamId);
+        if (teamStats != null) {
+            if (teamId == teamStats.getTeamId()) {
                 return teamStats;
             }
         }

@@ -55,7 +55,7 @@ public class TeamController {
         return teamService.getListOfTeam();
     }
 
-    @GetMapping
+    @GetMapping("/listOf/playersByRuns")
     public List<Player> getListPlayerByRuns(String teamId) {
         return teamService.getListPlayerByRuns(teamId);
     }

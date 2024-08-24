@@ -15,6 +15,7 @@ public interface TournamentService {
 
     boolean removeTeamFromTournament(String tournamentId, String teamId);
 
+    Tournament getListPlayerByRuns(String tournamentId);
 
 
 //    List<MatchResult> getAllMatchesByTournamentId(String tournamentId);

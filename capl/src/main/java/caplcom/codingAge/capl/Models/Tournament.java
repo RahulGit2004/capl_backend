@@ -33,4 +33,7 @@ public class Tournament {
 
 // it has to be List<TeamStats>
     private List<Team> teamList = new ArrayList<>();
+    private List<TeamStats> teamStatsList = new ArrayList<>();
+    private List<Match> matchList = new ArrayList<>();
+
 }

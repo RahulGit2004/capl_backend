@@ -25,5 +25,4 @@ public interface TeamService {
     boolean removePlayerFromTeam(String teamId, String playerId);
     Team saveUpdates(Team team);
 
-    List<Player> getListPlayerByRuns(String teamId);
 }

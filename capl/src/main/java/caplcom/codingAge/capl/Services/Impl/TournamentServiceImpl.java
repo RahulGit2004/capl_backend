@@ -86,6 +86,11 @@ public class TournamentServiceImpl implements TournamentService {
         return false;
     }
 
+    @Override
+    public Tournament getListPlayerByRuns(String tournamentId) {
+        return null;
+    }
+
 
     List<Team> getListOfTeamsOfTournament(String tournamentId){
         Tournament tournament = findByTournamentId(tournamentId);

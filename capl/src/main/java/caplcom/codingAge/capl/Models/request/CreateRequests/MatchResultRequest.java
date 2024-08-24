@@ -12,12 +12,11 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 public class MatchResultRequest {
-    private String tournamentId;
-    private String firstTeamId;
-    private String secondTeamId;
-    private Date matchDate;
-    private Time matchTime;
-    private String tossWon;
-    private String tossSelected;
-    private ScoreBoard ScoreCard;
+    private String matchId;
+    private String firstTeamTotalRuns;
+    private String firstTeamTotalWickets;
+    private String secondTeamTotalRuns;
+    private String secondTeamTotalWickets;
+    private String winnerTeam;
+    private String manOfTheMatch;
 }

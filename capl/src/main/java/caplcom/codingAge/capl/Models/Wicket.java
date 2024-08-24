@@ -20,5 +20,4 @@ public class Wicket {
     private String teamId;
     private String batterId;
     private String fielderId;
-
 }

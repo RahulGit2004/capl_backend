@@ -48,8 +48,8 @@ public class TeamStatsController {
 
     @PostMapping("/createMatchTeamStats")
     // need to use proper naming convention
-    public TeamStats createMatchTeamStats(@RequestBody TeamStatsRequest teamStatsRequest) {
-        return teamStatsService.createMatchTeamStats(teamStatsRequest);
+    public TeamStats createTeamStats(@RequestBody TeamStatsRequest teamStatsRequest) {
+        return teamStatsService.createTeamStats(teamStatsRequest);
     }
 
     @PutMapping("/editmatchTeamStats")
