@@ -46,4 +46,9 @@ public class PlayerController {
         return playerService.addFourByPlayerId(playerId);
     }
 
+    @PutMapping("/add/six/player")
+    public int addSixByPlayerId(String playerId){
+        return playerService.addSixByPlayerId(playerId);
+    }
+
 }

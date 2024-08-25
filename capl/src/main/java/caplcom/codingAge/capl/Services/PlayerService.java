@@ -20,4 +20,6 @@ public interface PlayerService {
     Player getPlayerByPlayerPhone(String userPhone);
 
     boolean addFourByPlayerId(String playerId);
+
+    int addSixByPlayerId(String playerId);
 }

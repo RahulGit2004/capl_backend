@@ -25,7 +25,6 @@ public class TournamentServiceImpl implements TournamentService {
     @Override
     public Tournament createTournament(TournamentRequest tournamentRequest) {
 
-        // extra things added
         Season season = seasonService.getSeasonBySeasonYear(tournamentRequest.getSeasonYear());
 
         if (season == null) {
@@ -34,11 +33,11 @@ public class TournamentServiceImpl implements TournamentService {
             Tournament tournament = new Tournament();
             tournament.setTournamentName(tournamentRequest.getTournamentName());
             tournament.setTournamentStartDate(tournamentRequest.getTournamentStartDate());
-            tournament.setTournamentEndDate(tournamentRequest.getTournamentEndDate());
             tournament.setSeasonYear(tournamentRequest.getSeasonYear());
+            tournament.setCreatorId(tournamentRequest.getCreatorId());
             tournament.setStadiumName(tournamentRequest.getStadiumName());
             tournament.setStadiumAddress(tournamentRequest.getStadiumAddress());
-            tournament.setCreatorId(tournamentRequest.getCreatorId());
+            tournament.setTournamentEndDate(tournamentRequest.getTournamentEndDate());
             // adding here
             season.getTournamentList().add(tournament);
             // add season repo...
@@ -85,6 +84,11 @@ public class TournamentServiceImpl implements TournamentService {
             }
         }
         return false;
+    }
+
+    @Override
+    public Tournament getListPlayerByRuns(String tournamentId) {
+        return null;
     }
 
 

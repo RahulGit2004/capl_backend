@@ -42,14 +42,13 @@ public class MatchResultServiceImpl implements MatchResultService {
     @Override
     public MatchResult createMatchResult(MatchResultRequest matchResultRequest) {
         MatchResult matchResult = new MatchResult();
-        matchResult.setFirstTeamId(matchResultRequest.getFirstTeamId());
-        matchResult.setSecondTeamId(matchResultRequest.getSecondTeamId());
-        matchResult.setMatchDate(matchResultRequest.getMatchDate());
-        matchResult.setMatchTime(matchResultRequest.getMatchTime());
-        matchResult.setScoreCard(matchResultRequest.getScoreCard());
-        matchResult.setTossWon(matchResultRequest.getTossWon());
-        matchResult.setTossSelected(matchResultRequest.getTossSelected());
-        matchResult.setTournamentId(matchResultRequest.getTournamentId());
+        matchResult.setMatchId(matchResultRequest.getMatchId());
+        matchResult.setFirstTeamTotalRuns(matchResultRequest.getFirstTeamTotalRuns());
+        matchResult.setFirstTeamTotalWickets(matchResultRequest.getFirstTeamTotalWickets());
+        matchResult.setSecondTeamTotalRuns(matchResultRequest.getSecondTeamTotalRuns());
+        matchResult.setSecondTeamTotalWickets(matchResultRequest.getSecondTeamTotalWickets());
+        matchResult.setManOfTheMatch(matchResultRequest.getManOfTheMatch());
+        matchResult.setWinnerTeam(matchResultRequest.getWinnerTeam());
         matchResultRepository.save(matchResult);
         return matchResult;
     }
@@ -58,14 +57,12 @@ public class MatchResultServiceImpl implements MatchResultService {
     public MatchResult editMatchResult(UpdateMatchResult updateMatchResult) {
         MatchResult matchResult = matchResultRepository.findById(updateMatchResult.getId()).get();
         if (matchResult != null) {
-            matchResult.setFirstTeamId(updateMatchResult.getFirstTeamId());
-            matchResult.setSecondTeamId(updateMatchResult.getSecondTeamId());
-            matchResult.setMatchDate(updateMatchResult.getMatchDate());
-            matchResult.setMatchTime(updateMatchResult.getMatchTime());
-            matchResult.setScoreCard(updateMatchResult.getScoreCard());
-            matchResult.setTossWon(updateMatchResult.getTossWon());
-            matchResult.setTossSelected(updateMatchResult.getTossSelected());
-            matchResult.setTournamentId(updateMatchResult.getTournamentId());
+            matchResult.setFirstTeamTotalRuns(updateMatchResult.getFirstTeamTotalRuns());
+            matchResult.setFirstTeamTotalWickets(updateMatchResult.getFirstTeamTotalWickets());
+            matchResult.setSecondTeamTotalRuns(updateMatchResult.getSecondTeamTotalRuns());
+            matchResult.setSecondTeamTotalWickets(updateMatchResult.getSecondTeamTotalWickets());
+            matchResult.setManOfTheMatch(updateMatchResult.getManOfTheMatch());
+            matchResult.setWinnerTeam(updateMatchResult.getWinnerTeam());
             matchResultRepository.save(matchResult);
             return matchResult;
         }

@@ -40,9 +40,9 @@ public class TournamentController {
         return tournamentService.removeTeamFromTournament(tournamentId , teamId);
     }
 
-//    public List<MatchResult> getAllMatchesByTournamentId(@RequestParam Integer tournamentId){
-//        return tournamentService.getAllMatchesByTournamentId(tournamentId);
-//    }
+    public Tournament getListPlayerByRuns(@RequestParam String tournamentId){
+        return tournamentService.getListPlayerByRuns(tournamentId);
+    }
 
 
 }
